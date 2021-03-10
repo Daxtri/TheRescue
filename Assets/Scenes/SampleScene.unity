@@ -541,6 +541,8 @@ MonoBehaviour:
   collider: {fileID: 622965115}
   speed: 10
   gravity: -40
+  sprintSpeed: 10
+  crouchSpeed: 4
   groundCheck: {fileID: 1069397219}
   groundDistance: 0.4
   groundMask:
@@ -851,7 +853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 622965118}
-  mouseSensitivity: 200
+  mouseSensitivity: 400
 --- !u!1 &980335317
 GameObject:
   m_ObjectHideFlags: 0

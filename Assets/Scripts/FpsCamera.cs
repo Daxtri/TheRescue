@@ -7,10 +7,12 @@ public class FpsCamera : MonoBehaviour
     public Transform player;
     public float mouseSensitivity = 100f;
     float xRotation = 0f;
+    PlayerMovement playerm;
     // Start is called before the first frame update
     void Start()
     {
-         transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        playerm = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -33,11 +35,13 @@ public class FpsCamera : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftControl))
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y -1.0f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, 1.0f, transform.position.z);
+            
+           
         }
         else if(Input.GetKeyUp(KeyCode.LeftControl))
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, 2.0f/*transform.position.y + 1.0f*/, transform.position.z);
         }
 
     }

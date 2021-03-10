@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
-     public CapsuleCollider collider;
+    public CapsuleCollider collider;
     Vector3 velocity;
 
     public float speed = 7.0f;
     public float gravity = -9.8f;
+    public float sprintSpeed = 10.0f;
+    public float crouchSpeed = 4.0f;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -20,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         collider.height = 2.0f;
-        controller.height= 2.0f;
+        
     }
 
     void Update()
@@ -57,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         {
 
 
-            speed = 10.0f;
+            speed = sprintSpeed;
             Debug.Log("Sprinting");
         }
         else
@@ -70,7 +72,15 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftControl))
         {
             collider.height = 1.0f;
-            controller.height = 1.0f;
+            speed = crouchSpeed;
+
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            collider.height = 2.0f;
+            speed = 7.0f;
+
         }
     }
 }
