@@ -27,5 +27,18 @@ public class FpsCamera : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
         player.Rotate(Vector3.up * mouseX);
+        Crouch();
+    }
+    private void Crouch()
+    {
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y -1.0f, transform.position.z);
+        }
+        else if(Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);
+        }
+
     }
 }

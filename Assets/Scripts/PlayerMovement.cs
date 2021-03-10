@@ -5,9 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
+     public CapsuleCollider collider;
     Vector3 velocity;
 
-    public float speed = 12f;
+    public float speed = 7.0f;
     public float gravity = -9.8f;
 
     public Transform groundCheck;
@@ -16,6 +17,11 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded;
 
     public float jumpHeight = 3f;
+    private void Start()
+    {
+        collider.height = 2.0f;
+        controller.height= 2.0f;
+    }
 
     void Update()
     {
@@ -40,6 +46,31 @@ public class PlayerMovement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+        Sprint();
+        Crouch();
     }
+    private void Sprint()
+    {
+        float _zMovement = Input.GetAxis("Vertical");
 
+        if (Input.GetKey(KeyCode.LeftShift) && _zMovement == 1 && isGrounded)
+        {
+
+
+            speed = 10.0f;
+            Debug.Log("Sprinting");
+        }
+        else
+        {
+            speed = 7.0f;
+        }
+    }
+    private void Crouch()
+    {
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            collider.height = 1.0f;
+            controller.height = 1.0f;
+        }
+    }
 }

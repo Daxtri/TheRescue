@@ -538,6 +538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 622965120}
+  collider: {fileID: 622965115}
   speed: 10
   gravity: -40
   groundCheck: {fileID: 1069397219}
