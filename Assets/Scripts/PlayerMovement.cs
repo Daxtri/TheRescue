@@ -4,45 +4,42 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]
-    private float speed = 5f;
+    public CharacterController controller;
+    Vector3 velocity;
 
-    [SerializeField]
-    private float lookSensitivity = 3f;
+    public float speed = 12f;
+    public float gravity = -9.8f;
 
-    private Vector3 velocity = Vector3.zero;
-    private Vector3 rotation = Vector3.zero;
-    private Rigidbody rb;
+    public Transform groundCheck;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
+    public bool isGrounded;
 
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
+    public float jumpHeight = 3f;
 
-    // Update is called once per frame
     void Update()
     {
-        float _xMovement = Input.GetAxis("Horizontal");
-        float _zMovement = Input.GetAxis("Vertical");
+        isGrounded = Physics.CheckSphere(groundCheck.position, 
+        groundDistance, groundMask);
 
-        Vector3 _movementHorizontal = transform.right * _xMovement;
-        Vector3 _movementVertical = transform.forward * _zMovement;
-        Vector3 _movementVelocity =
-            (_movementHorizontal + _movementVertical).normalized * speed;
-
-        // apply Movement
-        Move(_movementVelocity);
-    }
-    private void FixedUpdate()
-    {
-        if (velocity != Vector3.zero)
-        {
-            rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+        if(isGrounded && velocity.y < 0){
+            velocity.y = -2f;
         }
+
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        Vector3 move = transform.right * x + transform.forward * z;
+        
+        controller.Move(move * speed * Time.deltaTime);
+
+        if(Input.GetButtonDown("Jump") && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
     }
 
-    private void Move(Vector3 movementVelocity)
-    {
-        velocity = movementVelocity;
-    }
 }
