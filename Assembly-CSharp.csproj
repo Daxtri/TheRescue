@@ -57,9 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\FpsCamera.cs" />
-    <Compile Include="Assets\Scripts\Shoot.cs" />
     <Compile Include="Assets\Scripts\Gun.cs" />
+    <Compile Include="Assets\Scripts\FpsCamera.cs" />
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\Sound.cs" />
+    <Compile Include="Assets\BulletTrail\BulletTrail\LineFade.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
