@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
@@ -18,13 +19,33 @@ public class Gun : MonoBehaviour
     public LineRenderer bulletTrail;
     public Transform shootPoint;
 
+    public Text text;
+
+    float currentAmmo, maxAmmo = 30f;
+
+    private void Start()
+    {
+        currentAmmo = maxAmmo;    
+    }
+
     void Update()
     {
         if (Input.GetButtonDown("Fire1") && Time.time >= nextShot)
         {
             nextShot = Time.time + 1f / fireRate;
-            Shoot();            
+            if (currentAmmo > 0)
+                Shoot();
+            else
+            {
+
+            }
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+            currentAmmo = maxAmmo;
+
+
+        text.text = currentAmmo.ToString();
     }
 
     void Shoot()
@@ -43,6 +64,7 @@ public class Gun : MonoBehaviour
 
         GameObject impact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(impact, 1f);
+        currentAmmo--;
     }
 
     private void SpawnBulletTrail(Vector3 hitPoint)

@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
-    public CapsuleCollider collider;
+    public GameObject camera;
+
     Vector3 velocity;
 
     public float speed = 7.0f;
@@ -18,17 +19,22 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     public bool isGrounded;
 
+    float dist;
+
     public float jumpHeight = 3f;
+
+    private float originalHeight, crouchHeight;
+
     private void Start()
     {
-        collider.height = 2.0f;
-        
+        dist = controller.height / 2;
+        originalHeight = controller.height;
+        crouchHeight = 0.9f;
     }
 
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, 
-        groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if(isGrounded && velocity.y < 0){
             velocity.y = -2f;
@@ -50,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
         Sprint();
         Crouch();
+
+        camera.transform.position = new Vector3(camera.transform.position.x, controller.height * 0.8f, camera.transform.position.z);
     }
     private void Sprint()
     {
@@ -69,18 +77,28 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Crouch()
     {
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            collider.height = 1.0f;
+            controller.height = crouchHeight;
             speed = crouchSpeed;
-
         }
 
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
-            collider.height = 2.0f;
+            controller.height = originalHeight;
             speed = 7.0f;
-
         }
+
+        Vector3 tmpScale = transform.localScale;
+        Vector3 tmpPosition = transform.position;
+
+        float ultScale = transform.localScale.y;
+
+        tmpScale.y = Mathf.Lerp(transform.localScale.y, 1, Time.deltaTime);
+        transform.localScale = tmpScale;
+
+        tmpPosition.y += dist * (transform.localScale.y - ultScale); // fix vertical position        
+        transform.position = tmpPosition;
+
     }
 }
