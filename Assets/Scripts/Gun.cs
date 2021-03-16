@@ -44,7 +44,6 @@ public class Gun : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
             currentAmmo = maxAmmo;
 
-
         text.text = currentAmmo.ToString();
     }
 

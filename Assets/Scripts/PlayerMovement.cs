@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         Sprint();
         Crouch();
 
-        camera.transform.position = new Vector3(camera.transform.position.x, controller.height * 0.8f, camera.transform.position.z);
+       // camera.transform.position = new Vector3(camera.transform.position.x, controller.height * 0.8f, camera.transform.position.z);
     }
     private void Sprint()
     {
@@ -65,8 +65,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift) && _zMovement == 1 && isGrounded)
         {
-
-
             speed = sprintSpeed;
             Debug.Log("Sprinting");
         }
@@ -99,6 +97,5 @@ public class PlayerMovement : MonoBehaviour
 
         tmpPosition.y += dist * (transform.localScale.y - ultScale); // fix vertical position        
         transform.position = tmpPosition;
-
     }
 }
