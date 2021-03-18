@@ -19,8 +19,8 @@ public class FpsCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;//* Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;//* Time.deltaTime;
 
         xRotation -= mouseY;
 
@@ -41,7 +41,7 @@ public class FpsCamera : MonoBehaviour
         }
         else if(Input.GetKeyUp(KeyCode.LeftControl))
         {
-            transform.position = new Vector3(transform.position.x, 2.0f/*transform.position.y + 1.0f*/, transform.position.z);
+            transform.position = new Vector3(transform.position.x, 2.0f, transform.position.z);
         }
 
     }

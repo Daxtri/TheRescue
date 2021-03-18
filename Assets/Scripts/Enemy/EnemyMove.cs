@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
-    [SerializeField]
-    Transform[] waypoints;
-    int currentWaypoint = 0;
+    //[SerializeField]
+    //Transform[] waypoints;
+    //int currentWaypoint = 0;
+
+    public GameObject player;
 
     Rigidbody rigidBody;
 
@@ -27,13 +29,16 @@ public class EnemyMove : MonoBehaviour
 
     void Movement()
     {
-        if (Vector3.Distance(transform.position, waypoints[currentWaypoint].position) < .25f)
-        {
-            currentWaypoint += 1;
-            currentWaypoint = currentWaypoint % waypoints.Length;
-        }
+        //if (Vector3.Distance(transform.position, waypoints[currentWaypoint].position) < .25f)
+        //{
+        //    currentWaypoint += 1;
+        //    currentWaypoint = currentWaypoint % waypoints.Length;
+        //}
 
-        Vector3 dir = (waypoints[currentWaypoint].position - transform.position).normalized;
+        //transform.LookAt(player.transform);
+
+        Vector3 dir = (player.transform.position - transform.position).normalized;
+
         rigidBody.MovePosition(transform.position + dir * moveSpeed * Time.deltaTime);
 
     }

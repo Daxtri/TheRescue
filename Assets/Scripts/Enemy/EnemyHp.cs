@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EnemyHp : MonoBehaviour
 {
-    public float hp = 100;
-    public float maxHp;
+    public float currentHp;
+    public float maxHp = 100f;
 
     public GameObject hpUI;
     ItemDrop getItem;
     void Start()
     {
-        hp = maxHp;
+        currentHp = maxHp;
      
         getItem = GetComponent<ItemDrop>();
     }
@@ -19,28 +19,33 @@ public class EnemyHp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      //  slider.value = CalculateHP();
+        //  slider.value = CalculateHP();
 
-        if (hp < maxHp)
-            hpUI.SetActive(true);
-
-        if (hp <= 0)
+        //if (currentHp < maxHp)
+        //   hpUI.SetActive(true);
+            
+        if (currentHp <= 0)
         {
-            if (getItem != null)
-            {
-                getItem.DropItem();
-                Debug.Log("Dropped an Item " + getItem);
-            }
+            //if (getItem != null)
+            //{
+            //    getItem.DropItem();
+            //    Debug.Log("Dropped an Item " + getItem);
+            //}
             Destroy(gameObject);
         }
 
-        if (hp > maxHp)
-            hp = maxHp;
+        if (currentHp > maxHp)
+            currentHp = maxHp;
     }
 
     float CalculateHP()
     {
-        return hp / maxHp;
+        return currentHp / maxHp;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHp -= damage;
     }
 
 }

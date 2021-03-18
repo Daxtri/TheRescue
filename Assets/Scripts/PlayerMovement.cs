@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject gun0, gun1, gun2;
     public CharacterController controller;
     public GameObject camera;
+
+    int currentWeapon;
 
     Vector3 velocity;
 
@@ -27,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        currentWeapon = 1;
         dist = controller.height / 2;
         originalHeight = controller.height;
         crouchHeight = 0.9f;
@@ -34,9 +38,23 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            currentWeapon = 1;
+
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+            currentWeapon = 2;
+
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+            currentWeapon = 3;
+
+        Debug.Log(currentWeapon.ToString());
+
+        SwitchWeapon(currentWeapon);
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if(isGrounded && velocity.y < 0){
+        if (isGrounded && velocity.y < 0)
+        {
             velocity.y = -2f;
         }
 
@@ -44,20 +62,20 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
-        
+
         controller.Move(move * speed * Time.deltaTime);
 
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
         Sprint();
         Crouch();
-
-       // camera.transform.position = new Vector3(camera.transform.position.x, controller.height * 0.8f, camera.transform.position.z);
+        
     }
     private void Sprint()
     {
@@ -97,5 +115,29 @@ public class PlayerMovement : MonoBehaviour
 
         tmpPosition.y += dist * (transform.localScale.y - ultScale); // fix vertical position        
         transform.position = tmpPosition;
+    }
+
+    void SwitchWeapon(int curWeapon)
+    {
+        switch (curWeapon)
+        {
+            case 1:
+                gun0.SetActive(true);
+                gun1.SetActive(false);
+                gun2.SetActive(false);
+                break;
+
+            case 2:
+                gun0.SetActive(false);
+                gun1.SetActive(true);
+                gun2.SetActive(false);
+                break;
+
+            case 3:
+                gun0.SetActive(false);
+                gun1.SetActive(false);
+                gun2.SetActive(true);
+                break;
+        }        
     }
 }

@@ -25,19 +25,46 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
-        currentAmmo = maxAmmo;    
+        currentAmmo = maxAmmo;
     }
 
     void Update()
     {
         if (Input.GetButtonDown("Fire1") && Time.time >= nextShot)
         {
-            nextShot = Time.time + 1f / fireRate;
-            if (currentAmmo > 0)
-                Shoot();
-            else
+            if (this.tag == "Pistol")
             {
+                nextShot = Time.time + 0.5f / fireRate;
+                if (currentAmmo > 0)
+                    Shoot();
+                else
+                {
 
+                }
+            }
+
+            if (this.tag == "Rifle")
+            {
+                damage = 33f;
+                nextShot = Time.time + 0.5f / fireRate;
+                if (currentAmmo > 0)
+                    Shoot();
+                else
+                {
+
+                }
+            }
+
+            if (this.tag == "Sniper")
+            {
+                damage = 100;
+                nextShot = Time.time + 0.5f / fireRate;
+                if (currentAmmo > 0)
+                    Shoot();
+                else
+                {
+
+                }
             }
         }
 
@@ -54,7 +81,12 @@ public class Gun : MonoBehaviour
 
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
+            if (hit.transform.tag == "Enemy")
+            {
+                EnemyHp enemy = hit.transform.GetComponent<EnemyHp>();
+                enemy.TakeDamage(damage);
+            }
+            //Debug.Log(hit.transform.name);
             SpawnBulletTrail(hit.point);
         }
 
