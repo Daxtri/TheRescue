@@ -8,9 +8,13 @@ public class EnemyMove : MonoBehaviour
     //Transform[] waypoints;
     //int currentWaypoint = 0;
 
+    public LayerMask enemyLayerMask;
+
     public GameObject player;
 
     Rigidbody rigidBody;
+
+    public float sphereRadius = 0.3f;
 
     [SerializeField]
     float moveSpeed = 5f;
@@ -24,22 +28,42 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        //Movement();
+        Move();
     }
 
     void Movement()
     {
-        //if (Vector3.Distance(transform.position, waypoints[currentWaypoint].position) < .25f)
-        //{
-        //    currentWaypoint += 1;
-        //    currentWaypoint = currentWaypoint % waypoints.Length;
-        //}
-
-        //transform.LookAt(player.transform);
 
         Vector3 dir = (player.transform.position - transform.position).normalized;
 
+        this.transform.LookAt(player.transform);
+
         rigidBody.MovePosition(transform.position + dir * moveSpeed * Time.deltaTime);
 
+    }
+
+    void Move()
+    { 
+        Ray ray = new Ray(this.transform.position, this.transform.forward);
+
+        Collider[] collidersHit = Physics.OverlapSphere(this.transform.position, sphereRadius);
+
+        foreach (Collider hit in collidersHit)
+        {
+            if (hit.gameObject.transform.position != this.transform.position)
+            {
+                Vector3 dir = (player.transform.position - transform.position).normalized;
+
+                this.transform.LookAt(player.transform);
+
+                rigidBody.MovePosition(transform.position + dir * moveSpeed * Time.deltaTime);
+            }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(this.transform.position, sphereRadius);
     }
 }

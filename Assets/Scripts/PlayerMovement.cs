@@ -8,7 +8,9 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     public GameObject camera;
 
-    int currentWeapon;
+    bool weaponSwitched = false;
+
+    int currentWeapon, previousWeapon;
 
     Vector3 velocity;
 
@@ -30,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        currentWeapon = 1;
+        previousWeapon = currentWeapon = 1;
         dist = controller.height / 2;
         originalHeight = controller.height;
         crouchHeight = 0.9f;
@@ -39,17 +41,18 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            currentWeapon = 1;
+            SwitchWeapon(1);
 
         else if (Input.GetKeyDown(KeyCode.Alpha2))
-            currentWeapon = 2;
+            SwitchWeapon(2);
 
         else if (Input.GetKeyDown(KeyCode.Alpha3))
-            currentWeapon = 3;
+            SwitchWeapon(3);
 
-        Debug.Log(currentWeapon.ToString());
+        if (Input.GetKeyDown(KeyCode.Q))
+            SwitchWeapon(previousWeapon);
 
-        SwitchWeapon(currentWeapon);
+        Debug.Log("Curr" + currentWeapon.ToString() + "," + "Prev" + previousWeapon.ToString());
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -118,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void SwitchWeapon(int curWeapon)
-    {
+    { 
         switch (curWeapon)
         {
             case 1:
@@ -138,6 +141,9 @@ public class PlayerMovement : MonoBehaviour
                 gun1.SetActive(false);
                 gun2.SetActive(true);
                 break;
-        }        
+        }
+
+        previousWeapon = currentWeapon;
+        currentWeapon = curWeapon;
     }
 }
