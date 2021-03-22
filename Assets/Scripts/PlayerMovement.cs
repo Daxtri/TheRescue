@@ -4,38 +4,27 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public PlayerController playerController;
     public GameObject gun0, gun1, gun2;
     public CharacterController controller;
     public GameObject camera;
 
-    bool weaponSwitched = false;
+    float speed;
 
     int currentWeapon, previousWeapon;
 
     Vector3 velocity;
-
-    public float speed = 7.0f;
-    public float gravity = -9.8f;
-    public float sprintSpeed = 10.0f;
-    public float crouchSpeed = 4.0f;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     public bool isGrounded;
 
-    float dist;
-
-    public float jumpHeight = 3f;
-
-    private float originalHeight, crouchHeight;
-
     private void Start()
     {
+        playerController = GetComponent<PlayerController>();
+        speed = playerController.normalSpeed;
         previousWeapon = currentWeapon = 1;
-        dist = controller.height / 2;
-        originalHeight = controller.height;
-        crouchHeight = 0.9f;
     }
 
     void Update()
@@ -52,8 +41,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
             SwitchWeapon(previousWeapon);
 
-        Debug.Log("Curr" + currentWeapon.ToString() + "," + "Prev" + previousWeapon.ToString());
-
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -66,19 +53,18 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        controller.Move(move * speed * Time.deltaTime);
+        controller.Move(move * playerController.normalSpeed * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            velocity.y = Mathf.Sqrt(playerController.jumpForce * -2f * playerController.gravity);
         }
 
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += playerController.gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
         Sprint();
         Crouch();
-        
     }
     private void Sprint()
     {
@@ -86,38 +72,27 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift) && _zMovement == 1 && isGrounded)
         {
-            speed = sprintSpeed;
+            speed = playerController.sprintSpeed;
             Debug.Log("Sprinting");
         }
         else
         {
-            speed = 7.0f;
+            speed = playerController.normalSpeed;
         }
     }
     private void Crouch()
     {
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            controller.height = crouchHeight;
-            speed = crouchSpeed;
+            controller.height = playerController.crouchHeight;
+            speed = playerController.crouchSpeed;
         }
 
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
-            controller.height = originalHeight;
-            speed = 7.0f;
+            controller.height = playerController.originalHeight;
+            speed = playerController.normalSpeed;
         }
-
-        Vector3 tmpScale = transform.localScale;
-        Vector3 tmpPosition = transform.position;
-
-        float ultScale = transform.localScale.y;
-
-        tmpScale.y = Mathf.Lerp(transform.localScale.y, 1, Time.deltaTime);
-        transform.localScale = tmpScale;
-
-        tmpPosition.y += dist * (transform.localScale.y - ultScale); // fix vertical position        
-        transform.position = tmpPosition;
     }
 
     void SwitchWeapon(int curWeapon)
