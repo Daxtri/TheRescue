@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyMove : MonoBehaviour
 {
     public Animator anim;
     public AudioManager audio;
+    public NavMeshAgent agent;
     public LayerMask enemyLayerMask;
 
     bool sound;
@@ -26,12 +26,15 @@ public class EnemyMove : MonoBehaviour
     public float distance = 20f;
 
     [SerializeField]
-    float moveSpeed = 5f;
+    float moveSpeed;
+    float regularSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
         //anim = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+        regularSpeed = moveSpeed;
         sound = false;
         rigidBody = GetComponent<Rigidbody>();
     }
@@ -48,28 +51,27 @@ public class EnemyMove : MonoBehaviour
 
         if (dist <= distance)
         {
+            agent.isStopped = false;
             anim.SetBool("Running", true);
             if (sound == false)
             {
                 sound = true;
             }
 
-            Vector3 dir = (player.transform.position - transform.position).normalized;
-            rigidBody.MovePosition(transform.position + dir * moveSpeed * Time.deltaTime);
-            rigidBody.rotation = Quaternion.LookRotation(dir);
-            this.transform.position = new Vector3(transform.position.x, 0.9f, transform.position.z);
+            agent.SetDestination(player.transform.position);
 
             if (dist <= attackRadius)
             {
+                agent.isStopped = true;
                 if (invoked)
                 {
                     anim.SetBool("Running", false);
-                    anim.SetBool("Punching", true);
                     Attack();
                     invoked = false;
                 }
                 else
                 {
+                    agent.isStopped = true;
                     anim.SetBool("Punching", false);
                 }
 
@@ -82,6 +84,7 @@ public class EnemyMove : MonoBehaviour
         }
         else
         {
+            agent.isStopped = true;
             anim.SetBool("Running", false);
             sound = false;
         }
@@ -89,6 +92,7 @@ public class EnemyMove : MonoBehaviour
 
     void Attack()
     {
+        anim.SetBool("Punching", true);
         Collider[] hitPlayer = Physics.OverlapSphere(this.transform.position, attackRadius);
 
         foreach (Collider c in hitPlayer)
