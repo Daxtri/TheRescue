@@ -9,7 +9,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public float currentHealth;
     [SerializeField]
-    public float armor = 140f;
+    public float maxArmor;
+    [SerializeField]
+    public float currentArmor;
     [SerializeField]
     public float jumpForce = 1.5f;
     [SerializeField]
@@ -29,18 +31,42 @@ public class PlayerController : MonoBehaviour
     {
         maxHealth = 100f;
         currentHealth = maxHealth;
+        maxArmor = 140f;
+        currentArmor = maxArmor;
         originalHeight = GetComponent<CharacterController>().height;
         crouchHeight = originalHeight/2;
     }
     void Update()
     {
-        if(currentHealth<=0)
-        Die();
+        if (currentHealth <= 0)
+            Die();
+
+        #region Caps
+        if (currentArmor <= 0)
+            currentArmor = 0;
+
+        if (currentArmor >= maxArmor)
+            currentArmor = maxArmor;
+
+        if (currentHealth <= 0)
+            currentHealth = 0;
+
+        if (currentHealth >= maxHealth)
+            currentHealth = maxHealth;
+        #endregion
     }
 
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
+        if (currentArmor >= damage)
+            currentArmor -= damage;
+
+        else
+        {
+            float diff = damage - currentArmor;
+            currentArmor = 0;
+            currentHealth -= diff;
+        }
     }
 
     void Die()

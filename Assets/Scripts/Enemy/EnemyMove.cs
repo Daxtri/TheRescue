@@ -24,18 +24,16 @@ public class EnemyMove : MonoBehaviour
 
     public float distance = 20f;
 
-    [SerializeField]
-    float moveSpeed;
-    float regularSpeed;
-
     // Start is called before the first frame update
     void Start()
     {
         //anim = GetComponent<Animator>();
         enemyHp = GetComponent<EnemyHp>();
         agent = GetComponent<NavMeshAgent>();
-        regularSpeed = moveSpeed;
         sound = false;
+
+        agent.speed = Random.Range(2.4f, 8);
+        agent.angularSpeed = 360;
     }
 
     // Update is called once per frame
@@ -59,7 +57,6 @@ public class EnemyMove : MonoBehaviour
             anim.SetBool("Running", true);
 
             agent.SetDestination(player.transform.position);
-            agent.speed = moveSpeed / 2f;
 
             if (dist <= attackRadius)
             {
@@ -91,6 +88,7 @@ public class EnemyMove : MonoBehaviour
             }
             invoked = false;
         }
+
         else
         {
             agent.isStopped = true;

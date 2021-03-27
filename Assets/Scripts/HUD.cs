@@ -21,9 +21,9 @@ public class HUD : MonoBehaviour
         //HEALTH ARMOR
         hpBar.value = playerController.currentHealth;
         hpBar.maxValue = playerController.maxHealth;
-        armorBar.value = playerController.armor;
+        armorBar.value = playerController.currentArmor;
 
-        if (playerController.armor <= 0) armorBar.fillRect.gameObject.SetActive(false);
+        if (playerController.currentArmor <= 0) armorBar.fillRect.gameObject.SetActive(false);
         if (playerController.currentHealth <= 0) hpBar.fillRect.gameObject.SetActive(false);
 
         //COUNTER
