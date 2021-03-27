@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public float currentHealth;
     [SerializeField]
-    public float armor;
+    public float armor = 140f;
     [SerializeField]
     public float jumpForce = 1.5f;
     [SerializeField]

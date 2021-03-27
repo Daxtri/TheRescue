@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
 
     public Text text;
 
-    float currentAmmo, maxAmmo = 30f;
+    public float currentAmmo, maxAmmo = 30f;
 
     private void Start()
     {
@@ -68,9 +68,10 @@ public class Gun : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R)){
+            //maxAmmo = 30 - (30 - currentAmmo);
             currentAmmo = maxAmmo;
-
+        }
         text.text = currentAmmo.ToString();
     }
 
