@@ -668,13 +668,13 @@
       <Project>{03710F61-F643-2CD9-DB09-4E9ABE6872E2}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
-    <ProjectReference Include="NavMeshComponents.csproj">
-      <Project>{2B531CB4-A014-00B2-6AEC-DFE4392371B3}</Project>
-      <Name>NavMeshComponents</Name>
-    </ProjectReference>
     <ProjectReference Include="NavMeshComponentsEditor.csproj">
       <Project>{DE2BE31A-93E0-4A5B-90EB-B1D3C7287AF6}</Project>
       <Name>NavMeshComponentsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponents.csproj">
+      <Project>{2B531CB4-A014-00B2-6AEC-DFE4392371B3}</Project>
+      <Name>NavMeshComponents</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

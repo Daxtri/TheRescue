@@ -3,6 +3,7 @@ using UnityEngine.AI;
 
 public class EnemyMove : MonoBehaviour
 {
+    public EnemyHp enemyHp;
     public Animator anim;
     public AudioManager audio;
     public NavMeshAgent agent;
@@ -13,8 +14,6 @@ public class EnemyMove : MonoBehaviour
     public float attackRadius = 5f;
 
     public GameObject player;
-
-    Rigidbody rigidBody;
 
     public float sphereRadius = 0.3f;
 
@@ -33,16 +32,21 @@ public class EnemyMove : MonoBehaviour
     void Start()
     {
         //anim = GetComponent<Animator>();
+        enemyHp = GetComponent<EnemyHp>();
         agent = GetComponent<NavMeshAgent>();
         regularSpeed = moveSpeed;
         sound = false;
-        rigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if (enemyHp.dead == false)
+            Move();
+        else 
+        {
+            agent.isStopped = true;
+        }
     }
 
     void Move()
@@ -53,54 +57,49 @@ public class EnemyMove : MonoBehaviour
         {
             agent.isStopped = false;
             anim.SetBool("Running", true);
-            if (sound == false)
-            {
-                sound = true;
-            }
 
             agent.SetDestination(player.transform.position);
+            agent.speed = moveSpeed / 2f;
 
             if (dist <= attackRadius)
             {
+                anim.SetBool("Running", false);
                 agent.isStopped = true;
-                if (invoked)
-                {
-                    anim.SetBool("Running", false);
-                    Attack();
-                    invoked = false;
-                }
-                else
-                {
-                    agent.isStopped = true;
-                    anim.SetBool("Punching", false);
-                }
-
-                if (time_lost++ == attackRate) //CUSTOM TIMER
-                {
-                    invoked = true;
-                    time_lost = 0;
-                }
+                Attack();
             }
         }
         else
         {
             agent.isStopped = true;
             anim.SetBool("Running", false);
-            sound = false;
         }
     }
 
     void Attack()
     {
-        anim.SetBool("Punching", true);
-        Collider[] hitPlayer = Physics.OverlapSphere(this.transform.position, attackRadius);
-
-        foreach (Collider c in hitPlayer)
+        if (invoked)
         {
-            if (c.tag.Equals("Player"))
+            anim.SetTrigger("Punching");
+            Collider[] hitPlayer = Physics.OverlapSphere(this.transform.position, attackRadius);
+
+            foreach (Collider c in hitPlayer)
             {
-                c.gameObject.GetComponent<PlayerController>().TakeDamage(5f);
+                if (c.tag.Equals("Player"))
+                {
+                    c.gameObject.GetComponent<PlayerController>().TakeDamage(5f);
+                }
             }
+            invoked = false;
+        }
+        else
+        {
+            agent.isStopped = true;
+        }
+
+        if (time_lost++ == attackRate) //CUSTOM TIMER
+        {
+            invoked = true;
+            time_lost = 0;
         }
     }
 

@@ -56,12 +56,12 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshLinkEditor.cs" />
     <Compile Include="Assets\NavMeshComponents\Editor\NavMeshAssetManager.cs" />
+    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshSurfaceEditor.cs" />
+    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshModifierEditor.cs" />
     <Compile Include="Assets\NavMeshComponents\Editor\NavMeshComponentsGUIUtility.cs" />
     <Compile Include="Assets\NavMeshComponents\Editor\NavMeshModifierVolumeEditor.cs" />
-    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshModifierEditor.cs" />
-    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshSurfaceEditor.cs" />
+    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshLinkEditor.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\NavMeshComponents\Editor\NavMeshComponentsEditor.asmdef" />

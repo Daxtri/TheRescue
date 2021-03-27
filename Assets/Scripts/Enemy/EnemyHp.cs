@@ -1,19 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHp : MonoBehaviour
 {
+    public Animator anim;
     public float currentHp;
     public float maxHp = 100f;
+    public bool dead = false;
 
-    public GameObject hpUI;
-    ItemDrop getItem;
     void Start()
     {
         currentHp = maxHp;
-     
-        getItem = GetComponent<ItemDrop>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -26,16 +26,14 @@ public class EnemyHp : MonoBehaviour
             
         if (currentHp <= 0)
         {
-            //if (getItem != null)
-            //{
-            //    getItem.DropItem();
-            //    Debug.Log("Dropped an Item " + getItem);
-            //}
-            Destroy(gameObject);
+            Die();
         }
+    }
 
-        if (currentHp > maxHp)
-            currentHp = maxHp;
+    void Die()
+    {
+        anim.SetBool("Dead", true);
+        dead = true;
     }
 
     float CalculateHP()
