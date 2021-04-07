@@ -161,6 +161,7 @@ MonoBehaviour:
   currentHp: 0
   maxHp: 100
   dead: 0
+  time_lost: 0
 --- !u!114 &11790411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,6 +416,7 @@ MonoBehaviour:
   currentHp: 0
   maxHp: 100
   dead: 0
+  time_lost: 0
 --- !u!114 &98503623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5575,6 +5577,7 @@ MonoBehaviour:
   currentHp: 0
   maxHp: 100
   dead: 0
+  time_lost: 0
 --- !u!114 &242359789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6174,6 +6177,7 @@ MonoBehaviour:
   currentHp: 0
   maxHp: 100
   dead: 0
+  time_lost: 0
 --- !u!1001 &455074574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19003,6 +19007,7 @@ MonoBehaviour:
   currentHp: 0
   maxHp: 100
   dead: 0
+  time_lost: 0
 --- !u!195 &1546743452
 NavMeshAgent:
   m_ObjectHideFlags: 0
