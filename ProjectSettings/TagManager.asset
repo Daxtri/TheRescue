@@ -8,6 +8,8 @@ TagManager:
   - Pistol
   - Rifle
   - Sniper
+  - Interact
+  - Health
   layers:
   - Default
   - TransparentFX

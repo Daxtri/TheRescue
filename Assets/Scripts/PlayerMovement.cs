@@ -96,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void SwitchWeapon(int curWeapon)
-    { 
+    {
         switch (curWeapon)
         {
             case 1:
@@ -120,5 +120,31 @@ public class PlayerMovement : MonoBehaviour
 
         previousWeapon = currentWeapon;
         currentWeapon = curWeapon;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        string tag = other.tag;
+
+        switch (tag)
+        {
+            case "Interact":
+                Debug.Log("Inside");
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    other.GetComponent<Interact>().activated = true;
+                }
+                break;
+
+            case "Health":
+                playerController.currentHealth += 20f;
+                Destroy(other.gameObject);
+                break;
+
+            case "Armor":
+                playerController.currentArmor += 20f;
+                Destroy(other.gameObject);
+                break;
+        }
     }
 }

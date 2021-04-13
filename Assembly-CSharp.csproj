@@ -67,6 +67,9 @@
     <Compile Include="Assets\Scripts\Sound.cs" />
     <Compile Include="Assets\Scripts\HUD.cs" />
     <Compile Include="Assets\Scripts\FpsCamera.cs" />
+    <Compile Include="Assets\Scripts\PlayerInteract.cs" />
+    <Compile Include="Assets\Interact.cs" />
+    <Compile Include="Assets\PickUpAnim.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

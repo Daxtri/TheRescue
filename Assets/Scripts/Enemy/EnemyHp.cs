@@ -12,6 +12,8 @@ public class EnemyHp : MonoBehaviour
     [SerializeField]
     float time_lost;
 
+    public GameObject healthPickUp;
+    bool instantiated = false;
     void Start()
     {
         currentHp = maxHp;
@@ -36,17 +38,18 @@ public class EnemyHp : MonoBehaviour
     void Die()
     {
         anim.SetBool("Dead", true);
-        dead = true;
 
-        if (dead)
+        if (instantiated == false)
         {
-            time_lost++;
+            Instantiate(healthPickUp);
+            healthPickUp.transform.position = this.transform.position;
+            instantiated = true;
+        }
+        time_lost++;
 
-                if(time_lost == 3000)
-                {
-                    Destroy(gameObject);
-                }
-
+        if (time_lost == 50)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -59,6 +62,4 @@ public class EnemyHp : MonoBehaviour
     {
         currentHp -= damage;
     }
- 
-
 }

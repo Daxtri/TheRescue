@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         if (currentHealth <= 0)
             Die();
 
-        #region Caps
+        #region Health and Armor Caps
         if (currentArmor <= 0)
             currentArmor = 0;
 

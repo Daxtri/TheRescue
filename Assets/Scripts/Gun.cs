@@ -68,7 +68,7 @@ public class Gun : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R)){
+        if (Input.GetKeyDown(KeyCode.R)) {
             //maxAmmo = 30 - (30 - currentAmmo);
             anim.SetTrigger("Reload");
             currentAmmo = maxAmmo;
