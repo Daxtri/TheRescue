@@ -38,6 +38,7 @@ public class EnemyHp : MonoBehaviour
 
     void Die()
     {
+        dead = true;
         anim.SetBool("Dead", true);
 
         if (instantiated == false)
@@ -52,11 +53,6 @@ public class EnemyHp : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    float CalculateHP()
-    {
-        return currentHp / maxHp;
     }
 
     public void TakeDamage(float damage)
