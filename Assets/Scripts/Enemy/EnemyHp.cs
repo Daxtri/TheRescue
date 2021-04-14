@@ -8,6 +8,7 @@ public class EnemyHp : MonoBehaviour
     public Animator anim;
     public float currentHp;
     public float maxHp = 100f;
+    public float deathTimer = 1000;
     public bool dead = false;
     [SerializeField]
     float time_lost;
@@ -47,7 +48,7 @@ public class EnemyHp : MonoBehaviour
         }
         time_lost++;
 
-        if (time_lost == 50)
+        if (time_lost == deathTimer)
         {
             Destroy(gameObject);
         }

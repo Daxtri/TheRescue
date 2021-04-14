@@ -10,6 +10,7 @@ TagManager:
   - Sniper
   - Interact
   - Health
+  - Vent
   layers:
   - Default
   - TransparentFX

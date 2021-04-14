@@ -88,6 +88,11 @@ public class Gun : MonoBehaviour
                 EnemyHp enemy = hit.transform.GetComponent<EnemyHp>();
                 enemy.TakeDamage(damage);
             }
+            else if(hit.transform.tag == "Vent")
+            {
+                Destroy(hit.transform.gameObject);
+                audio.Play("Vent");
+            }
             //Debug.Log(hit.transform.name);
             SpawnBulletTrail(hit.point);
         }
