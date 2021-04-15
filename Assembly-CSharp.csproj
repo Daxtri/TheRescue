@@ -66,10 +66,13 @@
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\BulletTrail\BulletTrail\LineFade.cs" />
     <Compile Include="Assets\Scripts\Sound.cs" />
+    <Compile Include="Assets\Boss_Run.cs" />
+    <Compile Include="Assets\Scripts\BossScripts\BossScript.cs" />
     <Compile Include="Assets\Scripts\HUD.cs" />
     <Compile Include="Assets\Scripts\FpsCamera.cs" />
     <Compile Include="Assets\Interact.cs" />
     <Compile Include="Assets\PickUpAnim.cs" />
+    <Compile Include="Assets\HealthBar.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -11,6 +11,8 @@ TagManager:
   - Interact
   - Health
   - Vent
+  - AttackAnchor
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - UI
   - Weapon
   - enemyLayers
-  - 
+  - Player
   - 
   - 
   - 

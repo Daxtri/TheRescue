@@ -83,17 +83,26 @@ public class Gun : MonoBehaviour
 
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
         {
-            if (hit.transform.tag == "Enemy")
+            string tag = hit.transform.tag;
+
+            switch (tag)
             {
-                EnemyHp enemy = hit.transform.GetComponent<EnemyHp>();
-                enemy.TakeDamage(damage);
+                case "Enemy":
+                    EnemyHp enemy = hit.transform.GetComponent<EnemyHp>();
+                    enemy.TakeDamage(damage);
+                    break;
+
+                case "Vent":
+                    Destroy(hit.transform.gameObject);
+                    audio.Play("Vent");
+                    break;
+
+                case "Boss":
+                    BossScript boss = hit.transform.GetComponent<BossScript>();
+                    boss.TakeDamage((int)damage);
+                    break;
             }
-            else if(hit.transform.tag == "Vent")
-            {
-                Destroy(hit.transform.gameObject);
-                audio.Play("Vent");
-            }
-            //Debug.Log(hit.transform.name);
+
             SpawnBulletTrail(hit.point);
         }
 
