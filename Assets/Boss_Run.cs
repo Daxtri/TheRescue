@@ -26,9 +26,8 @@ public class Boss_Run : StateMachineBehaviour
         {
             agent.isStopped = true;
             animator.SetTrigger("Attack");
-            agent.isStopped = false;
         }
-
+        agent.isStopped = false;
         if (boss.currentHealth <= 0)
             agent.isStopped = true;
 
@@ -37,6 +36,6 @@ public class Boss_Run : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+        animator.ResetTrigger("Attack");
     }
 }
