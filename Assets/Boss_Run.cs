@@ -30,7 +30,6 @@ public class Boss_Run : StateMachineBehaviour
         agent.isStopped = false;
         if (boss.currentHealth <= 0)
             agent.isStopped = true;
-
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

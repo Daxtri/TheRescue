@@ -34,6 +34,7 @@ public class Gun : MonoBehaviour
         {
             if (this.tag == "Pistol")
             {
+                damage = 15f;
                 nextShot = Time.time + 0.5f / fireRate;
                 if (currentAmmo > 0)
                     Shoot();
@@ -57,7 +58,7 @@ public class Gun : MonoBehaviour
 
             if (this.tag == "Sniper")
             {
-                damage = 100;
+                damage = 1000f;
                 nextShot = Time.time + 0.5f / fireRate;
                 if (currentAmmo > 0)
                     Shoot();

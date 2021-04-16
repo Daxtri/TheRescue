@@ -10,6 +10,8 @@ public class BossScript : MonoBehaviour
     public Animator anim;
     NavMeshAgent agent;
 
+    public bool isDead;
+
     public int maxHealth = 500;
     public int currentHealth;
 
@@ -24,6 +26,7 @@ public class BossScript : MonoBehaviour
 
     private void Start()
     {
+        isDead = false;
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
@@ -55,7 +58,7 @@ public class BossScript : MonoBehaviour
     {
         agent.isStopped = true;
         anim.SetBool("Dead", true);
-
+        isDead = true;
         StartCoroutine(Disappear());
     }
 

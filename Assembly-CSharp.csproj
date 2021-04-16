@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\Enemy\ItemDrop.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyHp.cs" />
     <Compile Include="Assets\Scripts\Gun.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMove.cs" />
@@ -72,7 +73,7 @@
     <Compile Include="Assets\Scripts\FpsCamera.cs" />
     <Compile Include="Assets\Interact.cs" />
     <Compile Include="Assets\PickUpAnim.cs" />
-    <Compile Include="Assets\HealthBar.cs" />
+    <Compile Include="Assets\Open.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
