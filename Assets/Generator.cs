@@ -18,7 +18,7 @@ public class Generator : MonoBehaviour
         {
             if (enemies.Count < 3)
             {
-                Vector3 randomPos = new Vector3(Random.Range(0, radius), transform.position.y, Random.Range(0, radius));
+                Vector3 randomPos = new Vector3(Random.Range(-radius, radius), transform.position.y, Random.Range(-radius, radius));
                 GameObject enemy1 = Instantiate(enemy, transform.position + randomPos, Quaternion.identity);
                 enemies.Add(enemy1);
             }
