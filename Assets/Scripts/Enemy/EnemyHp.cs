@@ -10,10 +10,11 @@ public class EnemyHp : MonoBehaviour
     public float maxHp = 100f;
     public float deathTimer = 1000;
     public bool dead = false;
-    [SerializeField]
-    float time_lost;
+    
+    public float time_lost;
 
     public GameObject healthPickUp;
+
     bool instantiated = false;
     void Start()
     {
@@ -43,8 +44,7 @@ public class EnemyHp : MonoBehaviour
 
         if (instantiated == false)
         {
-            Instantiate(healthPickUp);
-            healthPickUp.transform.position = this.transform.position;
+            Instantiate(healthPickUp, transform.position, Quaternion.identity);
             instantiated = true;
         }
         time_lost++;
@@ -59,4 +59,28 @@ public class EnemyHp : MonoBehaviour
     {
         currentHp -= damage;
     }
+
+   /* public void DropItem()
+    {
+        //RANDOMIZE
+        randNum = Random.Range(0, 101); // 100% total for determining loot chance;
+        //INSTACIAR OBJETO
+        if (randNum <= 75)
+        {
+            itemNum = 1;
+            Instantiate(itemList[itemNum], NPCpos.position, Quaternion.identity);
+        }
+        else if (randNum > 75 && randNum < 95)
+        {
+            itemNum = 0;
+            Instantiate(itemList[itemNum], NPCpos.position, Quaternion.identity);
+        }
+        else if (randNum >= 95)
+        {
+            itemNum = 0;
+            itemNum2 = 1;
+            Instantiate(itemList[itemNum], NPCpos.position, Quaternion.identity);
+            Instantiate(itemList[itemNum2], NPCpos.position, Quaternion.identity);
+        }
+    }*/
 }

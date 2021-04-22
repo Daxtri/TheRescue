@@ -13,6 +13,7 @@ TagManager:
   - Vent
   - AttackAnchor
   - Boss
+  - Audio
   layers:
   - Default
   - TransparentFX

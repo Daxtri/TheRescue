@@ -103,18 +103,30 @@ public class PlayerMovement : MonoBehaviour
                 gun0.SetActive(true);
                 gun1.SetActive(false);
                 gun2.SetActive(false);
+
+                gun0.GetComponent<HandGun>().isActive = true;
+                gun1.GetComponent<Rifle>().isActive = false;
+                gun2.GetComponent<Sniper>().isActive =false;
                 break;
 
             case 2:
                 gun0.SetActive(false);
                 gun1.SetActive(true);
                 gun2.SetActive(false);
+
+                gun0.GetComponent<HandGun>().isActive = false;
+                gun1.GetComponent<Rifle>().isActive = true;
+                gun2.GetComponent<Sniper>().isActive = false;
                 break;
 
             case 3:
                 gun0.SetActive(false);
                 gun1.SetActive(false);
                 gun2.SetActive(true);
+
+                gun0.GetComponent<HandGun>().isActive = false;
+                gun1.GetComponent<Rifle>().isActive = false;
+                gun2.GetComponent<Sniper>().isActive = true;
                 break;
         }
 

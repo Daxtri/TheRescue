@@ -9,8 +9,6 @@ public class EnemyMove : MonoBehaviour
     public NavMeshAgent agent;
     public LayerMask enemyLayerMask;
 
-    bool sound;
-
     public float attackRadius = 5f;
 
     public GameObject player;
@@ -27,10 +25,10 @@ public class EnemyMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //anim = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        anim = GetComponentInChildren<Animator>();
         enemyHp = GetComponent<EnemyHp>();
         agent = GetComponent<NavMeshAgent>();
-        sound = false;
 
         agent.speed = Random.Range(2.4f, 8);
         agent.angularSpeed = 360;
