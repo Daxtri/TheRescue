@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyHp : MonoBehaviour
 {
     public Animator anim;
+    public CapsuleCollider collider;
     public float currentHp;
     public float maxHp = 100f;
     public float deathTimer = 1000;
@@ -19,6 +20,7 @@ public class EnemyHp : MonoBehaviour
     void Start()
     {
         currentHp = maxHp;
+        collider = GetComponent<CapsuleCollider>();
         anim = GetComponentInChildren<Animator>();
         time_lost = 0;
     }
@@ -41,6 +43,8 @@ public class EnemyHp : MonoBehaviour
     {
         dead = true;
         anim.SetBool("Dead", true);
+
+        Destroy(collider);
 
         if (instantiated == false)
         {
