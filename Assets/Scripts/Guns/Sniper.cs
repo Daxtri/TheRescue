@@ -18,6 +18,7 @@ public class Sniper : MonoBehaviour
     public Camera fpsCamera;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
+    public GameObject bulletHole;
     public LineRenderer bulletTrail;
     public Transform shootPoint;
 
@@ -85,6 +86,14 @@ public class Sniper : MonoBehaviour
         audio.Play("Gun Shot");
 
         GameObject impact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+
+        if (!hit.transform.tag.Equals("Enemy") && !hit.transform.tag.Equals("Boss") && !hit.transform.tag.Equals("Vent"))
+        {
+            GameObject bulletHol3 = Instantiate(bulletHole, hit.point + hit.normal * 0.0001f, Quaternion.identity) as GameObject;
+            bulletHol3.transform.LookAt(hit.point + hit.normal);
+            Destroy(bulletHol3, 5f);
+        }
+
         Destroy(impact, 1f);
         currentAmmo--;
     }
