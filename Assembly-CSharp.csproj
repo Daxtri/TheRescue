@@ -79,6 +79,7 @@
     <Compile Include="Assets\PickUpAnim.cs" />
     <Compile Include="Assets\RifleAnimsetPro\Scripts\CursorLockHide.cs" />
     <Compile Include="Assets\Open.cs" />
+    <Compile Include="Assets\Scripts\Guns\Recoil.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\RifleAnimsetPro\readme.txt" />

@@ -9,6 +9,7 @@ public class HandGun : MonoBehaviour
     public bool isActive;
     public AudioManager audio;
     public Animator anim;
+    Recoil recoil;
     public float damage = 20f;
     public float range = 80f;
     public float fireRate = 15f;
@@ -29,6 +30,7 @@ public class HandGun : MonoBehaviour
 
     private void Start()
     {
+        recoil = GetComponent<Recoil>();
         isActive = false;
         audio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         anim = GetComponent<Animator>();
@@ -96,6 +98,7 @@ public class HandGun : MonoBehaviour
             Destroy(bulletHol3, 5f);
         }
 
+        recoil.Fire();
         Destroy(impact, 1f);
         currentAmmo--;
     }

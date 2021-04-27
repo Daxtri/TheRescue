@@ -13,6 +13,7 @@ public class Rifle : MonoBehaviour
     public float range = 80f;
     public float fireRate = 15f;
 
+    public Recoil recoil;
     public Camera fpsCamera;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
@@ -28,6 +29,7 @@ public class Rifle : MonoBehaviour
 
     private void Start()
     {
+        recoil = GetComponent<Recoil>();
         isActive = false;
         audio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         anim = GetComponent<Animator>();
@@ -81,6 +83,8 @@ public class Rifle : MonoBehaviour
 
             SpawnBulletTrail(hit.point);
         }
+
+        recoil.Fire();
 
         anim.SetTrigger("Shoot");
         audio.Play("Gun Shot");

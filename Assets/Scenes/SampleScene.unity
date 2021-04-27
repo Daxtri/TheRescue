@@ -724,6 +724,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &111921353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 111921354}
+  m_Layer: 8
+  m_Name: RecoilRotation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &111921354
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111921353}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 963194228}
+  m_Father: {fileID: 2045155783}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &123445500
 GameObject:
   m_ObjectHideFlags: 0
@@ -8767,6 +8798,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &414960471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414960469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b19d4075823ef84699fb8d1936229ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RecoilPositionTranform: {fileID: 2045155783}
+  RecoilRotationTranform: {fileID: 111921354}
+  PositionDampTime: 4
+  RotationDampTime: 2
+  Recoil1: 35
+  Recoil2: 90
+  Recoil3: 35
+  Recoil4: 80
+  RecoilRotation: {x: -80, y: 70, z: 70}
+  RecoilKickBack: {x: 0.2, y: 0.2, z: 0.2}
+  RecoilRotation_Aim: {x: 3.43, y: 0, z: 0}
+  RecoilKickBack_Aim: {x: 0, y: 0, z: 0}
+  CurrentRecoil1: {x: 0, y: 0, z: 0}
+  CurrentRecoil2: {x: 0, y: 0, z: 0}
+  CurrentRecoil3: {x: 0, y: 0, z: 0}
+  CurrentRecoil4: {x: 0, y: 0, z: 0}
+  RotationOutput: {x: 0, y: 0, z: 0}
 --- !u!114 &414960472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10195,6 +10255,35 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3832703582600944448, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
   m_PrefabInstance: {fileID: 1876349279}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &568533839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568533837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b19d4075823ef84699fb8d1936229ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RecoilPositionTranform: {fileID: 2045155783}
+  RecoilRotationTranform: {fileID: 111921354}
+  PositionDampTime: 4
+  RotationDampTime: 2
+  Recoil1: 35
+  Recoil2: 90
+  Recoil3: 35
+  Recoil4: 80
+  RecoilRotation: {x: -80, y: 70, z: 70}
+  RecoilKickBack: {x: 0.2, y: 0.2, z: 0.2}
+  RecoilRotation_Aim: {x: 3.43, y: 0, z: 0}
+  RecoilKickBack_Aim: {x: 0, y: 0, z: 0}
+  CurrentRecoil1: {x: 0, y: 0, z: 0}
+  CurrentRecoil2: {x: 0, y: 0, z: 0}
+  CurrentRecoil3: {x: 0, y: 0, z: 0}
+  CurrentRecoil4: {x: 0, y: 0, z: 0}
+  RotationOutput: {x: 0, y: 0, z: 0}
 --- !u!95 &568533840
 Animator:
   serializedVersion: 3
@@ -10874,7 +10963,7 @@ Transform:
   m_LocalPosition: {x: -14.9, y: 2, z: -254.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 963194228}
+  - {fileID: 2045155783}
   - {fileID: 1069397219}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -17565,7 +17654,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -17573,7 +17662,7 @@ Transform:
   - {fileID: 1832600664}
   - {fileID: 568533838}
   - {fileID: 2010890216}
-  m_Father: {fileID: 622965118}
+  m_Father: {fileID: 111921354}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &963194229
@@ -22544,6 +22633,35 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 4164d85f868287f478788478adaf82f2, type: 3}
   m_PrefabInstance: {fileID: 1864957863}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1832600665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832600663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b19d4075823ef84699fb8d1936229ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RecoilPositionTranform: {fileID: 2045155783}
+  RecoilRotationTranform: {fileID: 111921354}
+  PositionDampTime: 4
+  RotationDampTime: 2
+  Recoil1: 35
+  Recoil2: 90
+  Recoil3: 35
+  Recoil4: 80
+  RecoilRotation: {x: -80, y: 70, z: 70}
+  RecoilKickBack: {x: 0.2, y: 0.2, z: 0.2}
+  RecoilRotation_Aim: {x: 3.43, y: 0, z: 0}
+  RecoilKickBack_Aim: {x: 0, y: 0, z: 0}
+  CurrentRecoil1: {x: 0, y: 0, z: 0}
+  CurrentRecoil2: {x: 0, y: 0, z: 0}
+  CurrentRecoil3: {x: 0, y: 0, z: 0}
+  CurrentRecoil4: {x: 0, y: 0, z: 0}
+  RotationOutput: {x: 0, y: 0, z: 0}
 --- !u!95 &1832600667
 Animator:
   serializedVersion: 3
@@ -22581,6 +22699,7 @@ MonoBehaviour:
   damage: 20
   range: 80
   fireRate: 15
+  recoil: {fileID: 0}
   fpsCamera: {fileID: 963194227}
   muzzleFlash: {fileID: 1868924703}
   impactEffect: {fileID: 2274159061761412511, guid: cf85d6e170e925e4f8c6f3b1d676eac4, type: 3}
@@ -29313,6 +29432,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 92
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+--- !u!1 &2045155782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2045155783}
+  m_Layer: 8
+  m_Name: RecoilPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2045155783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045155782}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 111921354}
+  m_Father: {fileID: 622965118}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2048921473
 GameObject:
   m_ObjectHideFlags: 0
