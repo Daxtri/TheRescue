@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class HandGun : MonoBehaviour
 {
-    public bool isActive;
     public AudioManager audio;
     public Animator anim;
     Recoil recoil;
@@ -31,7 +30,6 @@ public class HandGun : MonoBehaviour
     private void Start()
     {
         recoil = GetComponent<Recoil>();
-        isActive = false;
         audio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         anim = GetComponent<Animator>();
         currentAmmo = maxAmmo;

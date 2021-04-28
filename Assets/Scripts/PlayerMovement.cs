@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public bool scoped;
+    public GameObject sniperScope;
     public PlayerController playerController;
     public GameObject gun0, gun1, gun2;
     public CharacterController controller;
@@ -22,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        scoped = false;
         playerController = GetComponent<PlayerController>();
         speed = playerController.normalSpeed;
         previousWeapon = currentWeapon = 1;
@@ -29,6 +32,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        Sprint();
+        Crouch();
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
             SwitchWeapon(1);
 
@@ -53,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        controller.Move(move * playerController.normalSpeed * Time.deltaTime);
+        //controller.Move(move * speed * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -61,25 +67,45 @@ public class PlayerMovement : MonoBehaviour
         }
 
         velocity.y += playerController.gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
 
-        Sprint();
-        Crouch();
+        controller.Move((move * speed + velocity) * Time.deltaTime);
+        Debug.Log(speed.ToString());
+
+        if (currentWeapon == 3)
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                scoped = !scoped;
+
+                if (scoped)
+                {
+                    gun2.SetActive(false);
+                    sniperScope.SetActive(true);
+                }
+                else
+                {
+                    gun2.SetActive(true);
+                    sniperScope.SetActive(false);
+                }
+            }
+        }
     }
+
     private void Sprint()
     {
-        float _zMovement = Input.GetAxis("Vertical");
+        //float _zMovement = Input.GetAxis("Vertical") && _zMovement == 1;
 
-        if (Input.GetKey(KeyCode.LeftShift) && _zMovement == 1 && isGrounded)
+        if (Input.GetKeyDown(KeyCode.LeftShift)  && isGrounded)
         {
             speed = playerController.sprintSpeed;
             Debug.Log("Sprinting");
         }
-        else
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             speed = playerController.normalSpeed;
         }
     }
+
     private void Crouch()
     {
         if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -103,30 +129,18 @@ public class PlayerMovement : MonoBehaviour
                 gun0.SetActive(true);
                 gun1.SetActive(false);
                 gun2.SetActive(false);
-
-                gun0.GetComponent<HandGun>().isActive = true;
-                gun1.GetComponent<Rifle>().isActive = false;
-                gun2.GetComponent<Sniper>().isActive =false;
                 break;
 
             case 2:
                 gun0.SetActive(false);
                 gun1.SetActive(true);
                 gun2.SetActive(false);
-
-                gun0.GetComponent<HandGun>().isActive = false;
-                gun1.GetComponent<Rifle>().isActive = true;
-                gun2.GetComponent<Sniper>().isActive = false;
                 break;
 
             case 3:
                 gun0.SetActive(false);
                 gun1.SetActive(false);
                 gun2.SetActive(true);
-
-                gun0.GetComponent<HandGun>().isActive = false;
-                gun1.GetComponent<Rifle>().isActive = false;
-                gun2.GetComponent<Sniper>().isActive = true;
                 break;
         }
 

@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public float gravity = -40f;
     [SerializeField]
-    public float sprintSpeed = 10.0f;
+    public float sprintSpeed = 15.0f;
     [SerializeField]
     public float crouchSpeed = 4.0f;
     [SerializeField]

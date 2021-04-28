@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Sniper : MonoBehaviour
 {
-    public bool isActive;
     public AudioManager audio;
     public Animator anim;
     public float damage = 20f;
@@ -28,7 +27,6 @@ public class Sniper : MonoBehaviour
 
     private void Start()
     {
-        isActive = false;
         audio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         anim = GetComponent<Animator>();
         currentAmmo = maxAmmo;

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Rifle : MonoBehaviour
 {
-    public bool isActive;
     public AudioManager audio;
     public Animator anim;
     public float damage = 20f;
@@ -30,7 +29,6 @@ public class Rifle : MonoBehaviour
     private void Start()
     {
         recoil = GetComponent<Recoil>();
-        isActive = false;
         audio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         anim = GetComponent<Animator>();
         currentAmmo = maxAmmo;
@@ -83,6 +81,16 @@ public class Rifle : MonoBehaviour
 
             SpawnBulletTrail(hit.point);
         }
+        else
+        {
+            recoil.Fire();
+
+            anim.SetTrigger("Shoot");
+            audio.Play("Gun Shot");
+
+            currentAmmo--;
+            return;
+        }
 
         recoil.Fire();
 
@@ -90,7 +98,7 @@ public class Rifle : MonoBehaviour
         audio.Play("Gun Shot");
 
         GameObject impact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-        
+
         if (!hit.transform.tag.Equals("Enemy") && !hit.transform.tag.Equals("Boss") && !hit.transform.tag.Equals("Vent"))
         {
             GameObject bulletHol3 = Instantiate(bulletHole, hit.point + hit.normal * 0.0001f, Quaternion.identity) as GameObject;
