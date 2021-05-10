@@ -21,12 +21,18 @@ public class Sniper : MonoBehaviour
     public LineRenderer bulletTrail;
     public Transform shootPoint;
 
+    public float headshotDamage, armDamage, legDamage, bodyDamage;
+
     public Text ammo, ammoReserves;
 
     public float currentAmmo, maxAmmo = 30f;
 
     private void Start()
     {
+        headshotDamage = damage * 3f;
+        armDamage = damage / 2f;
+        legDamage = damage / 1.5f;
+        bodyDamage = damage;
         audio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         anim = GetComponent<Animator>();
         currentAmmo = maxAmmo;
@@ -61,16 +67,23 @@ public class Sniper : MonoBehaviour
 
             switch (tag)
             {
-                case "Enemy":
-                    EnemyHp enemy = hit.transform.GetComponentInParent<EnemyHp>();
-                    enemy.TakeDamage(damage);
+                case "Head":
+                    hit.transform.gameObject.GetComponentInParent<EnemyHp>().TakeDamage(headshotDamage);
+                    break;
+                case "Arms":
+                    hit.transform.gameObject.GetComponentInParent<EnemyHp>().TakeDamage(armDamage);
+                    break;
+                case "Legs":
+                    hit.transform.gameObject.GetComponentInParent<EnemyHp>().TakeDamage(legDamage);
+                    break;
+                case "Body":
+                    hit.transform.gameObject.GetComponentInParent<EnemyHp>().TakeDamage(bodyDamage);
                     break;
 
                 case "Vent":
                     Destroy(hit.transform.gameObject);
                     audio.Play("Vent");
                     break;
-
                 case "Boss":
                     BossScript boss = hit.transform.GetComponent<BossScript>();
                     boss.TakeDamage((int)damage);

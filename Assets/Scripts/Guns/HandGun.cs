@@ -9,9 +9,11 @@ public class HandGun : MonoBehaviour
     public AudioManager audio;
     public Animator anim;
     Recoil recoil;
-    public float damage = 20f;
+    public float damage = 33f;
     public float range = 80f;
     public float fireRate = 15f;
+
+    public float headshotDamage, armDamage, legDamage, bodyDamage;
 
     private float nextShot = 2f;
 
@@ -28,13 +30,17 @@ public class HandGun : MonoBehaviour
 
     private void Start()
     {
+        headshotDamage = damage * 3f;
+        armDamage = damage / 2f;
+        legDamage = damage / 1.5f;
+        bodyDamage = damage;
         recoil = GetComponent<Recoil>();
         audio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         anim = GetComponent<Animator>();
         currentAmmo = maxAmmo;
     }
 
-    void Update()
+    public void Update()
     {
         UpdateHud();
 
@@ -60,12 +66,19 @@ public class HandGun : MonoBehaviour
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
         {
             string tag = hit.transform.tag;
-
             switch (tag)
             {
-                case "Enemy":
-                    EnemyHp enemy = hit.transform.GetComponentInParent<EnemyHp>();
-                    enemy.TakeDamage(damage);
+                case "Head":
+                    hit.transform.gameObject.GetComponentInParent<EnemyHp>().TakeDamage(headshotDamage);
+                    break;
+                case "Arms":
+                    hit.transform.gameObject.GetComponentInParent<EnemyHp>().TakeDamage(armDamage);
+                    break;
+                case "Legs":
+                    hit.transform.gameObject.GetComponentInParent<EnemyHp>().TakeDamage(legDamage);
+                    break;
+                case "Body":
+                    hit.transform.gameObject.GetComponentInParent<EnemyHp>().TakeDamage(bodyDamage);
                     break;
 
                 case "Vent":

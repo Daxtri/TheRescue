@@ -20,6 +20,8 @@ public class Rifle : MonoBehaviour
     public LineRenderer bulletTrail;
     public Transform shootPoint;
 
+    public float headshotDamage, armDamage, legDamage, bodyDamage;
+
     public float nextShot = 0f;
 
     public Text ammo, ammoReserves;
@@ -28,6 +30,10 @@ public class Rifle : MonoBehaviour
 
     private void Start()
     {
+        headshotDamage = damage * 5f;
+        armDamage = damage / 2f;
+        legDamage = damage / 1.5f;
+        bodyDamage = damage;
         recoil = GetComponent<Recoil>();
         audio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         anim = GetComponent<Animator>();
@@ -63,9 +69,17 @@ public class Rifle : MonoBehaviour
 
             switch (tag)
             {
-                case "Enemy":
-                    EnemyHp enemy = hit.transform.GetComponentInParent<EnemyHp>();
-                    enemy.TakeDamage(damage);
+                case "Head":
+                    hit.transform.gameObject.GetComponentInParent<EnemyHp>().TakeDamage(headshotDamage);
+                    break;
+                case "Arms":
+                    hit.transform.gameObject.GetComponentInParent<EnemyHp>().TakeDamage(armDamage);
+                    break;
+                case "Legs":
+                    hit.transform.gameObject.GetComponentInParent<EnemyHp>().TakeDamage(legDamage);
+                    break;
+                case "Body":
+                    hit.transform.gameObject.GetComponentInParent<EnemyHp>().TakeDamage(bodyDamage);
                     break;
 
                 case "Vent":
