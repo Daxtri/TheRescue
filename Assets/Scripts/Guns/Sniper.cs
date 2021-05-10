@@ -38,7 +38,7 @@ public class Sniper : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && Time.time >= nextShot)
         {
-            nextShot = Time.time + 0.5f / fireRate;
+            nextShot = Time.time + .5f / fireRate;
             if (currentAmmo > 0)
                 Shoot();
         }
@@ -62,7 +62,7 @@ public class Sniper : MonoBehaviour
             switch (tag)
             {
                 case "Enemy":
-                    EnemyHp enemy = hit.transform.GetComponent<EnemyHp>();
+                    EnemyHp enemy = hit.transform.GetComponentInParent<EnemyHp>();
                     enemy.TakeDamage(damage);
                     break;
 

@@ -30,12 +30,12 @@ public class EnemyMove : MonoBehaviour
         enemyHp = GetComponent<EnemyHp>();
         agent = GetComponent<NavMeshAgent>();
 
-        agent.speed = Random.Range(2.4f, 8);
-        agent.angularSpeed = 360;
+        //agent.speed = Random.Range(2.4f, 8);
+        //agent.angularSpeed = 360;
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if (enemyHp.dead == false)
             Move();
@@ -48,9 +48,10 @@ public class EnemyMove : MonoBehaviour
     void Move()
     {
         float dist = Vector3.Distance(player.transform.position, transform.position);
-
+        
         if (dist <= distance)
         {
+            Debug.Log("in range");
             agent.isStopped = false;
             anim.SetBool("Running", true);
 
@@ -74,6 +75,7 @@ public class EnemyMove : MonoBehaviour
     {
         if (invoked)
         {
+            agent.isStopped = true;
             anim.SetTrigger("Punching");
             Collider[] hitPlayer = Physics.OverlapSphere(this.transform.position, attackRadius);
 
@@ -85,11 +87,6 @@ public class EnemyMove : MonoBehaviour
                 }
             }
             invoked = false;
-        }
-
-        else
-        {
-            agent.isStopped = true;
         }
 
         if (time_lost++ == attackRate) //CUSTOM TIMER

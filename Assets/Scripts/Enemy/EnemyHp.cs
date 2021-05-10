@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyHp : MonoBehaviour
 {
     public Animator anim;
-    public CapsuleCollider collider;
+    public List<GameObject> colliders;
     public float currentHp;
     public float maxHp = 100f;
     public float deathTimer = 1000;
@@ -20,7 +20,6 @@ public class EnemyHp : MonoBehaviour
     void Start()
     {
         currentHp = maxHp;
-        collider = GetComponent<CapsuleCollider>();
         anim = GetComponentInChildren<Animator>();
         time_lost = 0;
     }
@@ -28,11 +27,6 @@ public class EnemyHp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //  slider.value = CalculateHP();
-
-        //if (currentHp < maxHp)
-        //   hpUI.SetActive(true);
-            
         if (currentHp <= 0)
         {
             Die();
@@ -44,7 +38,7 @@ public class EnemyHp : MonoBehaviour
         dead = true;
         anim.SetBool("Dead", true);
 
-        Destroy(collider);
+        foreach (GameObject c in colliders) Destroy(c);
 
         if (instantiated == false)
         {
@@ -63,28 +57,4 @@ public class EnemyHp : MonoBehaviour
     {
         currentHp -= damage;
     }
-
-   /* public void DropItem()
-    {
-        //RANDOMIZE
-        randNum = Random.Range(0, 101); // 100% total for determining loot chance;
-        //INSTACIAR OBJETO
-        if (randNum <= 75)
-        {
-            itemNum = 1;
-            Instantiate(itemList[itemNum], NPCpos.position, Quaternion.identity);
-        }
-        else if (randNum > 75 && randNum < 95)
-        {
-            itemNum = 0;
-            Instantiate(itemList[itemNum], NPCpos.position, Quaternion.identity);
-        }
-        else if (randNum >= 95)
-        {
-            itemNum = 0;
-            itemNum2 = 1;
-            Instantiate(itemList[itemNum], NPCpos.position, Quaternion.identity);
-            Instantiate(itemList[itemNum2], NPCpos.position, Quaternion.identity);
-        }
-    }*/
 }

@@ -64,7 +64,7 @@ public class Rifle : MonoBehaviour
             switch (tag)
             {
                 case "Enemy":
-                    EnemyHp enemy = hit.transform.GetComponent<EnemyHp>();
+                    EnemyHp enemy = hit.transform.GetComponentInParent<EnemyHp>();
                     enemy.TakeDamage(damage);
                     break;
 

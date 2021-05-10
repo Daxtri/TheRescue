@@ -22,7 +22,6 @@ public class HandGun : MonoBehaviour
     public LineRenderer bulletTrail;
     public Transform shootPoint;
 
-    public Text text;
     public Text ammo, ammoReserves;
 
     public float currentAmmo, maxAmmo = 30f;
@@ -51,7 +50,6 @@ public class HandGun : MonoBehaviour
             anim.SetTrigger("Reload");
             currentAmmo = maxAmmo;
         }
-        text.text = currentAmmo.ToString();
     }
 
     void Shoot()
@@ -66,7 +64,7 @@ public class HandGun : MonoBehaviour
             switch (tag)
             {
                 case "Enemy":
-                    EnemyHp enemy = hit.transform.GetComponent<EnemyHp>();
+                    EnemyHp enemy = hit.transform.GetComponentInParent<EnemyHp>();
                     enemy.TakeDamage(damage);
                     break;
 
