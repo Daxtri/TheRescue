@@ -6327,6 +6327,8 @@ GameObject:
   - component: {fileID: 622965119}
   - component: {fileID: 622965121}
   - component: {fileID: 622965122}
+  - component: {fileID: 622965124}
+  - component: {fileID: 622965123}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -6512,6 +6514,34 @@ MonoBehaviour:
   hpBar: {fileID: 751785225}
   armorBar: {fileID: 948332586}
   counter: {fileID: 1501669700}
+--- !u!114 &622965123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622965113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2695b12a6fc32a145ae7fe9839429de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enterPos: {x: 0, y: 0, z: 0}
+  exitPos: {x: 0, y: 0, z: 0}
+--- !u!136 &622965124
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622965113}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2.132554
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.06627703, z: 0}
 --- !u!1001 &626728685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7546,6 +7576,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4375eddd475d86d44a0ff23dda21a168, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4375eddd475d86d44a0ff23dda21a168, type: 3}
       propertyPath: m_TagString
       value: Sniper
       objectReference: {fileID: 0}
@@ -7608,7 +7642,7 @@ PrefabInstance:
     - target: {fileID: 5976701538247108650, guid: 4375eddd475d86d44a0ff23dda21a168, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 239378781582670930, guid: 4375eddd475d86d44a0ff23dda21a168, type: 3}
+      objectReference: {fileID: 2100000, guid: 3d2501297d4f81846b1dc5bdb8d7249b, type: 2}
     - target: {fileID: 7127480973585718505, guid: 4375eddd475d86d44a0ff23dda21a168, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -7986,7 +8020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &750095250
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8332,7 +8366,7 @@ GameObject:
   - component: {fileID: 826213137}
   m_Layer: 3
   m_Name: Plane (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -23306,7 +23340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92eea9f0193c19c419c8958fd1473f98, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.442
+      value: 0.399
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92eea9f0193c19c419c8958fd1473f98, type: 3}
       propertyPath: m_LocalRotation.w
@@ -23402,7 +23436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 92eea9f0193c19c419c8958fd1473f98, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 92eea9f0193c19c419c8958fd1473f98, type: 3}
       propertyPath: m_TagString

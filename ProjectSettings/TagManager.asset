@@ -19,6 +19,7 @@ TagManager:
   - Arms
   - Legs
   - Body
+  - Ground
   layers:
   - Default
   - TransparentFX

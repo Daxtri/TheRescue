@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\HUD.cs" />
     <Compile Include="Assets\Scripts\Guns\Sniper.cs" />
     <Compile Include="Assets\Interact.cs" />
+    <Compile Include="Assets\Scripts\Player\FallDamage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
