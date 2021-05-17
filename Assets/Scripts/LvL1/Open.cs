@@ -6,7 +6,7 @@ public class Open : MonoBehaviour
 {
     public GameObject computer;
     public Animator anim;
-    int time_lose = 0;
+    public int time_lose = 0;
     public bool finishedLvL;
 
 
@@ -25,6 +25,7 @@ public class Open : MonoBehaviour
         {
             if (time_lose++ == 5000) //CUSTOM TIMER
             {
+                
                 time_lose = 0;
                 startAnim();
             }

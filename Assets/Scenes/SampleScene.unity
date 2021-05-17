@@ -4478,6 +4478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   computer: {fileID: 1014247487}
   anim: {fileID: 0}
+  time_lose: 0
   finishedLvL: 0
 --- !u!95 &377855749
 Animator:
@@ -32783,19 +32784,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6014236707878352254, guid: 88cbb557f01af264c8417bbd28ff33c4, type: 3}
       propertyPath: m_Size.x
-      value: 1.7860303
+      value: 5.096816
       objectReference: {fileID: 0}
     - target: {fileID: 6014236707878352254, guid: 88cbb557f01af264c8417bbd28ff33c4, type: 3}
       propertyPath: m_Size.z
-      value: 1.3510135
+      value: 1.9737594
       objectReference: {fileID: 0}
     - target: {fileID: 6014236707878352254, guid: 88cbb557f01af264c8417bbd28ff33c4, type: 3}
       propertyPath: m_Center.x
-      value: 0.085164756
+      value: -0.729546
       objectReference: {fileID: 0}
     - target: {fileID: 6014236707878352254, guid: 88cbb557f01af264c8417bbd28ff33c4, type: 3}
       propertyPath: m_Center.z
-      value: -0.060907353
+      value: -0.37226507
       objectReference: {fileID: 0}
     - target: {fileID: 6014236707878352254, guid: 88cbb557f01af264c8417bbd28ff33c4, type: 3}
       propertyPath: m_IsTrigger
