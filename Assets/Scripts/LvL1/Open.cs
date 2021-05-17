@@ -21,7 +21,7 @@ public class Open : MonoBehaviour
     void Update()
     {
 
-        if (computer.GetComponent<ComputerInteraction>().canActivate)
+        if (computer.GetComponent<ComputerInteraction>().canActivate && Input.GetKey(KeyCode.E))
         {
             if (time_lose++ == 5000) //CUSTOM TIMER
             {

@@ -7,11 +7,9 @@ public class FpsCamera : MonoBehaviour
     public Transform player;
     public float mouseSensitivity = 100f;
     float xRotation = 0f;
-    PlayerMovement playerm;
     // Start is called before the first frame update
     void Start()
     {
-        playerm = GameObject.Find("Player").GetComponent<PlayerMovement>();
         transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
         Cursor.lockState = CursorLockMode.Locked;
     }

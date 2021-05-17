@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\LvL1\Quests1.cs" />
     <Compile Include="Assets\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyHp.cs" />
     <Compile Include="Assets\BulletTrail\BulletTrail\LineFade.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyMove.cs" />
     <Compile Include="Assets\Scripts\Gun.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\LvL1\ComputerInteraction.cs" />
     <Compile Include="Assets\Generator.cs" />
     <Compile Include="Assets\Scripts\Sound.cs" />
     <Compile Include="Assets\Scripts\Guns\HandGun.cs" />
@@ -81,8 +83,6 @@
     <Compile Include="Assets\Scripts\HUD.cs" />
     <Compile Include="Assets\Scripts\Guns\Sniper.cs" />
     <Compile Include="Assets\Interact.cs" />
-    <Compile Include="Assets\Scripts\LvL1\Quests1.cs" />
-    <Compile Include="Assets\Scripts\LvL1\ComputerInteraction.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
