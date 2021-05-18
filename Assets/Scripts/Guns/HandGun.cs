@@ -13,6 +13,8 @@ public class HandGun : MonoBehaviour
     public float range = 80f;
     public float fireRate = 15f;
 
+    public bool isReloading;
+
     public float headshotDamage, armDamage, legDamage, bodyDamage;
 
     private float nextShot = 2f;
@@ -30,6 +32,7 @@ public class HandGun : MonoBehaviour
 
     private void Start()
     {
+        isReloading = false;
         headshotDamage = damage * 3f;
         armDamage = damage / 2f;
         legDamage = damage / 1.5f;
@@ -44,7 +47,7 @@ public class HandGun : MonoBehaviour
     {
         UpdateHud();
 
-        if (Input.GetButtonDown("Fire1") && Time.time >= nextShot)
+        if (Input.GetButtonDown("Fire1") && Time.time >= nextShot && isReloading == false)
         {
             nextShot = Time.time + 0.5f / fireRate;
             if (currentAmmo > 0)
@@ -54,8 +57,13 @@ public class HandGun : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             anim.SetTrigger("Reload");
-            currentAmmo = maxAmmo;
+            isReloading = true;
         }
+    }
+
+    void Reload()
+    {
+        currentAmmo = maxAmmo;
     }
 
     void Shoot()

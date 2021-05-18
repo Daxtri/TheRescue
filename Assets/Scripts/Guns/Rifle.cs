@@ -12,6 +12,8 @@ public class Rifle : MonoBehaviour
     public float range = 80f;
     public float fireRate = 15f;
 
+    public bool isReloading;
+
     public Recoil recoil;
     public Camera fpsCamera;
     public ParticleSystem muzzleFlash;
@@ -30,6 +32,7 @@ public class Rifle : MonoBehaviour
 
     private void Start()
     {
+        isReloading = false;
         headshotDamage = damage * 5f;
         armDamage = damage / 2f;
         legDamage = damage / 1.5f;
@@ -41,8 +44,10 @@ public class Rifle : MonoBehaviour
     }
 
     void Update()
-    { 
-        if (Input.GetButton("Fire1") && Time.time >= nextShot)
+    {
+        UpdateHud();
+
+        if (Input.GetButton("Fire1") && Time.time >= nextShot && isReloading == false)
         {
             nextShot = Time.time + 1f/ fireRate;
             if (currentAmmo > 0)
@@ -52,10 +57,13 @@ public class Rifle : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             anim.SetTrigger("Reload");
-            currentAmmo = maxAmmo;
+            isReloading = true;
         }
+    }
 
-        UpdateHud();
+    void Reload()
+    {
+        currentAmmo = maxAmmo;
     }
 
     void Shoot()

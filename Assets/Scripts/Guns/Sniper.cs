@@ -12,6 +12,8 @@ public class Sniper : MonoBehaviour
     public float range = 80f;
     public float fireRate = 15f;
 
+    public bool isReloading;
+
     private float nextShot = 2f;
 
     public Camera fpsCamera;
@@ -29,6 +31,7 @@ public class Sniper : MonoBehaviour
 
     private void Start()
     {
+        isReloading = false;
         headshotDamage = damage * 3f;
         armDamage = damage / 2f;
         legDamage = damage / 1.5f;
@@ -51,9 +54,13 @@ public class Sniper : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            anim.SetTrigger("Reload");
-            currentAmmo = maxAmmo;
+            isReloading = true;
         }
+    }
+
+    void Reload()
+    {
+        currentAmmo = maxAmmo;
     }
 
     void Shoot()
