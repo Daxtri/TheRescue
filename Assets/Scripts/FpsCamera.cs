@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FpsCamera : MonoBehaviour
 {
+    public Menu menu;
     public Transform player;
     public float mouseSensitivity = 100f;
     float xRotation = 0f;
@@ -17,15 +18,24 @@ public class FpsCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;//* Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;//* Time.deltaTime;
+        if (menu.paused == false)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
 
-        xRotation -= mouseY;
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;//* Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;//* Time.deltaTime;
 
-        xRotation = Mathf.Clamp(xRotation, -85f, 85f);
+            xRotation -= mouseY;
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            xRotation = Mathf.Clamp(xRotation, -85f, 85f);
 
-        player.Rotate(Vector3.up * mouseX);
+            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+            player.Rotate(Vector3.up * mouseX);
+        }
+        else 
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
     }
 }

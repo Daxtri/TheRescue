@@ -49,6 +49,9 @@ public class Quests1 : MonoBehaviour
     }
     public void OnTriggerStay(Collider other)
     {
+        this.gameObject.GetComponent<Quests1>().enabled = true;
+        FindObjectOfType<DialogueSystem>().EnterRangeOfNPC();
+
         if (other.gameObject.tag == "Player" /*&& Input.GetKeyDown(KeyCode.F)*/)
         {
             Debug.Log("Entrou");
@@ -63,5 +66,6 @@ public class Quests1 : MonoBehaviour
     {
        // Hud_StartLvL1.SetActive(false);
         FindObjectOfType<DialogueSystem>().OutOfRange();
+        this.gameObject.GetComponent<Quests1>().enabled = false;
     }
 }

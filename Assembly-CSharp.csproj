@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\FpsCamera.cs" />
     <Compile Include="Assets\PickUpAnim.cs" />
     <Compile Include="Assets\Scripts\LvL1\Open.cs" />
+    <Compile Include="Assets\Scripts\DialogueSystem\DialogueSystem.cs" />
     <Compile Include="Assets\Scripts\PlayerInteract.cs" />
     <Compile Include="Assets\Scripts\Guns\Rifle.cs" />
     <Compile Include="Assets\Scripts\Enemy\ItemDrop.cs" />
@@ -85,7 +86,7 @@
     <Compile Include="Assets\Scripts\HUD.cs" />
     <Compile Include="Assets\Scripts\Guns\Sniper.cs" />
     <Compile Include="Assets\Interact.cs" />
-    <Compile Include="Assets\Scripts\DialogueSystem\DialogueSystem.cs" />
+    <Compile Include="Assets\Scripts\Menu\Menu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
