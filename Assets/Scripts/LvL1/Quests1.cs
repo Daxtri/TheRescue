@@ -52,15 +52,17 @@ public class Quests1 : MonoBehaviour
         this.gameObject.GetComponent<Quests1>().enabled = true;
         FindObjectOfType<DialogueSystem>().EnterRangeOfNPC();
 
-        if (other.gameObject.tag == "Player" /*&& Input.GetKeyDown(KeyCode.F)*/)
+        if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Entrou");
-            isQuestStart = true;
-            dialogueSystem.Names = Name;
-            dialogueSystem.dialogueLines = phrases;
-            FindObjectOfType<DialogueSystem>().NPCName();
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Debug.Log("Entrou");
+                isQuestStart = true;
+                dialogueSystem.Names = Name;
+                dialogueSystem.dialogueLines = phrases;
+                FindObjectOfType<DialogueSystem>().NPCName();
+            }
         }
-
     }
     public void OnTriggerExit(Collider other)
     {

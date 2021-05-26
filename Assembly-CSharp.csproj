@@ -80,13 +80,13 @@
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\LvL1\ComputerInteraction.cs" />
     <Compile Include="Assets\Generator.cs" />
+    <Compile Include="Assets\Scripts\Menu\Menu.cs" />
     <Compile Include="Assets\Scripts\Sound.cs" />
     <Compile Include="Assets\Scripts\Guns\HandGun.cs" />
     <Compile Include="Assets\Boss_Run.cs" />
     <Compile Include="Assets\Scripts\HUD.cs" />
     <Compile Include="Assets\Scripts\Guns\Sniper.cs" />
     <Compile Include="Assets\Interact.cs" />
-    <Compile Include="Assets\Scripts\Menu\Menu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
