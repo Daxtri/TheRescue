@@ -9,7 +9,7 @@ public class Sniper : MonoBehaviour
     public GameObject sniperScope;
     public AudioManager audio;
     public Animator anim;
-    public float damage = 20f;
+    public float damage = 100f;
     public float range = 80f;
     public float fireRate = 15f;
 
@@ -40,8 +40,8 @@ public class Sniper : MonoBehaviour
         mouseSens = fpsCamera.GetComponent<FpsCamera>().mouseSensitivity;
         isReloading = false;
         headshotDamage = damage * 3f;
-        armDamage = damage / 2f;
-        legDamage = damage / 1.5f;
+        armDamage = damage;
+        legDamage = damage / 1.2f;
         bodyDamage = damage;
         audio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         anim = GetComponent<Animator>();

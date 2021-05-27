@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Guns\Rifle.cs" />
     <Compile Include="Assets\Scripts\Enemy\ItemDrop.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\SniperReload.cs" />
     <Compile Include="Assets\RifleReload.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMove.cs" />
     <Compile Include="Assets\Scripts\Gun.cs" />
@@ -87,7 +88,6 @@
     <Compile Include="Assets\Scripts\HUD.cs" />
     <Compile Include="Assets\Scripts\Guns\Sniper.cs" />
     <Compile Include="Assets\Interact.cs" />
-    <Compile Include="Assets\SniperReload.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
