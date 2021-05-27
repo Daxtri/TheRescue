@@ -28,7 +28,7 @@ public class Rifle : MonoBehaviour
 
     public Text ammo, ammoReserves;
 
-    public float currentAmmo, maxAmmo = 30f;
+    public int currentAmmo, maxAmmo = 30, curReserve, maxReserve = 90;
 
     private void Start()
     {
@@ -41,6 +41,7 @@ public class Rifle : MonoBehaviour
         audio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         anim = GetComponent<Animator>();
         currentAmmo = maxAmmo;
+        curReserve = maxReserve;
     }
 
     void Update()
@@ -63,7 +64,25 @@ public class Rifle : MonoBehaviour
 
     void Reload()
     {
-        currentAmmo = maxAmmo;
+        if (curReserve >= maxAmmo)
+        {
+            curReserve -= maxAmmo - currentAmmo;
+            currentAmmo = maxAmmo;
+        }
+        else
+        {
+            if (curReserve + currentAmmo >= maxAmmo)
+            {
+                int temp = maxAmmo - currentAmmo;
+                curReserve -= temp;
+                currentAmmo += temp;
+            }
+            else
+            {
+                currentAmmo += curReserve;
+                curReserve = 0;
+            }
+        }
     }
 
     void Shoot()

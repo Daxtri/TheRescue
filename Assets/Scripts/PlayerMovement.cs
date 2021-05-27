@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerController playerController;
     public GameObject gun0, gun1, gun2;
     public CharacterController controller;
-    public GameObject camera;
+    public GameObject normalCamera, scopedCamera, weaponCamera;
 
     float speed;
 
@@ -59,8 +59,6 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        //controller.Move(move * speed * Time.deltaTime);
-
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(playerController.jumpForce * -2f * playerController.gravity);
@@ -70,32 +68,11 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move((move * speed + velocity) * Time.deltaTime);
         Debug.Log(speed.ToString());
-
-        if (currentWeapon == 3)
-        {
-            if (Input.GetMouseButtonDown(1))
-            {
-                scoped = !scoped;
-
-                if (scoped)
-                {
-                    gun2.SetActive(false);
-                    sniperScope.SetActive(true);
-                }
-                else
-                {
-                    gun2.SetActive(true);
-                    sniperScope.SetActive(false);
-                }
-            }
-        }
     }
 
     private void Sprint()
     {
-        //float _zMovement = Input.GetAxis("Vertical") && _zMovement == 1;
-
-        if (Input.GetKeyDown(KeyCode.LeftShift)  && isGrounded)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && isGrounded)
         {
             speed = playerController.sprintSpeed;
             Debug.Log("Sprinting");
