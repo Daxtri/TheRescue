@@ -98,6 +98,11 @@ public class HandGun : MonoBehaviour
                     BossScript boss = hit.transform.GetComponent<BossScript>();
                     boss.TakeDamage((int)damage);
                     break;
+
+                case "Boss2":
+                    Boss2Script boss2 = hit.transform.GetComponent<Boss2Script>();
+                    boss2.TakeDamage((int)damage);
+                    break;
             }
 
             SpawnBulletTrail(hit.point);

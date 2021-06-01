@@ -42,15 +42,24 @@ public class Boss2Script : MonoBehaviour
 
     void Update()
     {
-        float dist = Vector3.Distance(transform.position, player.transform.position);
         if (currentHealth <= 0)
             Die();
 
-        playerinAttackRange = Physics.CheckSphere(transform.position, attackRange, playerMask);
+        if (isDead == false)
+        {
+            float dist = Vector3.Distance(transform.position, player.transform.position);
 
-        
-        if (!playerinAttackRange) ChasePlayer();
-        if (playerinAttackRange) Attack();
+            if (Vector3.Distance(transform.position, player.transform.position) <= detectionRange)
+            {
+                anim.SetBool("Run", true);
+                healthBar.gameObject.SetActive(true);
+            }
+
+            playerinAttackRange = Physics.CheckSphere(transform.position, attackRange, playerMask);
+
+            if (!playerinAttackRange) ChasePlayer();
+            if (playerinAttackRange) Attack();
+        }
     }
 
     public void TakeDamage(int damage)
@@ -61,7 +70,7 @@ public class Boss2Script : MonoBehaviour
 
     void Die()
     {
-        agent.isStopped = true;
+        //agent.isStopped = true;
         anim.SetBool("Dead", true);
         isDead = true;
         StartCoroutine(Disappear());
@@ -85,7 +94,7 @@ public class Boss2Script : MonoBehaviour
 
         anim.SetTrigger("Shoot");
 
-        transform.LookAt(player.transform);
+        transform.LookAt(new Vector3(player.transform.position.x, this.transform.position.y, player.transform.position.z));
 
         if (!alreadyAttacked)
         {

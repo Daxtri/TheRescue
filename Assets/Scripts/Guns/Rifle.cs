@@ -118,6 +118,11 @@ public class Rifle : MonoBehaviour
                     BossScript boss = hit.transform.GetComponent<BossScript>();
                     boss.TakeDamage((int)damage);
                     break;
+
+                case "Boss2":
+                    Boss2Script boss2 = hit.transform.GetComponent<Boss2Script>();
+                    boss2.TakeDamage((int)damage);
+                    break;
             }
 
             SpawnBulletTrail(hit.point);
@@ -166,7 +171,7 @@ public class Rifle : MonoBehaviour
     void UpdateHud()
     {
         ammo.text = currentAmmo.ToString();
-        ammoReserves.text = "/" + maxAmmo.ToString();
+        ammoReserves.text = "/" + curReserve.ToString();
 
         if (currentAmmo <= 5) ammo.color = new Color(1, 0, 0, 1);
         else ammo.color = new Color(1, 1, 0, 1);

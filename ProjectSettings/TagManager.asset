@@ -21,6 +21,7 @@ TagManager:
   - Body
   - Ground
   - BossBullet
+  - Boss2
   layers:
   - Default
   - TransparentFX
