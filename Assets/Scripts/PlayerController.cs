@@ -69,12 +69,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag.Equals("BossBullet"))
-            TakeDamage(20f);
-    }
-
     void Die()
     {
         //Destroy(this.gameObject);

@@ -28,7 +28,7 @@ public class Rifle : MonoBehaviour
 
     public Text ammo, ammoReserves;
 
-    public int currentAmmo, maxAmmo = 30, curReserve, maxReserve = 90;
+    public float currentAmmo, maxAmmo = 30f;
 
     private void Start()
     {
@@ -41,7 +41,6 @@ public class Rifle : MonoBehaviour
         audio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         anim = GetComponent<Animator>();
         currentAmmo = maxAmmo;
-        curReserve = maxReserve;
     }
 
     void Update()
@@ -64,25 +63,7 @@ public class Rifle : MonoBehaviour
 
     void Reload()
     {
-        if (curReserve >= maxAmmo)
-        {
-            curReserve -= maxAmmo - currentAmmo;
-            currentAmmo = maxAmmo;
-        }
-        else
-        {
-            if (curReserve + currentAmmo >= maxAmmo)
-            {
-                int temp = maxAmmo - currentAmmo;
-                curReserve -= temp;
-                currentAmmo += temp;
-            }
-            else
-            {
-                currentAmmo += curReserve;
-                curReserve = 0;
-            }
-        }
+        currentAmmo = maxAmmo;
     }
 
     void Shoot()
@@ -117,11 +98,6 @@ public class Rifle : MonoBehaviour
                 case "Boss":
                     BossScript boss = hit.transform.GetComponent<BossScript>();
                     boss.TakeDamage((int)damage);
-                    break;
-
-                case "Boss2":
-                    Boss2Script boss2 = hit.transform.GetComponent<Boss2Script>();
-                    boss2.TakeDamage((int)damage);
                     break;
             }
 
@@ -171,7 +147,7 @@ public class Rifle : MonoBehaviour
     void UpdateHud()
     {
         ammo.text = currentAmmo.ToString();
-        ammoReserves.text = "/" + curReserve.ToString();
+        ammoReserves.text = "/" + maxAmmo.ToString();
 
         if (currentAmmo <= 5) ammo.color = new Color(1, 0, 0, 1);
         else ammo.color = new Color(1, 1, 0, 1);

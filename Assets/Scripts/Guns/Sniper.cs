@@ -6,18 +6,17 @@ using UnityEngine.UI;
 
 public class Sniper : MonoBehaviour
 {
-    public GameObject sniperScope;
     public AudioManager audio;
     public Animator anim;
-    public float damage = 100f;
+    public float damage = 20f;
     public float range = 80f;
     public float fireRate = 15f;
 
     public bool isReloading;
 
-    public float nextShot = 5f;
+    private float nextShot = 2f;
 
-    public Camera fpsCamera, weaponCamera;
+    public Camera fpsCamera;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
     public GameObject bulletHole;
@@ -26,42 +25,25 @@ public class Sniper : MonoBehaviour
 
     public float headshotDamage, armDamage, legDamage, bodyDamage;
 
-    public float mouseSens;
-
     public Text ammo, ammoReserves;
 
-    public bool scoped;
-
-    public int currentAmmo, maxAmmo = 1, curReserve, maxReserve = 30;
+    public float currentAmmo, maxAmmo = 30f;
 
     private void Start()
     {
-        scoped = false;
-        mouseSens = fpsCamera.GetComponent<FpsCamera>().mouseSensitivity;
         isReloading = false;
         headshotDamage = damage * 3f;
-        armDamage = damage;
-        legDamage = damage / 1.2f;
+        armDamage = damage / 2f;
+        legDamage = damage / 1.5f;
         bodyDamage = damage;
         audio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         anim = GetComponent<Animator>();
         currentAmmo = maxAmmo;
-        curReserve = maxReserve;
     }
 
     void Update()
     {
         UpdateHud();
-
-        if (scoped == false && Input.GetMouseButtonDown(1))
-        {
-            Scope();
-        }
-        else if (scoped == true && Input.GetMouseButtonDown(1))
-        {
-            Unscope();
-        }
-            
 
         if (Input.GetButtonDown("Fire1") && Time.time >= nextShot)
         {
@@ -70,17 +52,15 @@ public class Sniper : MonoBehaviour
                 Shoot();
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && currentAmmo<1)
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            anim.SetTrigger("Reload");
-            Unscope();
             isReloading = true;
         }
     }
 
-    public void Reload()
+    void Reload()
     {
-        currentAmmo++;
+        currentAmmo = maxAmmo;
     }
 
     void Shoot()
@@ -115,11 +95,6 @@ public class Sniper : MonoBehaviour
                     BossScript boss = hit.transform.GetComponent<BossScript>();
                     boss.TakeDamage((int)damage);
                     break;
-
-                case "Boss2":
-                    Boss2Script boss2 = hit.transform.GetComponent<Boss2Script>();
-                    boss2.TakeDamage((int)damage);
-                    break;
             }
 
             SpawnBulletTrail(hit.point);
@@ -142,24 +117,6 @@ public class Sniper : MonoBehaviour
         currentAmmo--;
     }
 
-    void Scope()
-    {
-        fpsCamera.GetComponent<Camera>().fieldOfView = 10;
-        fpsCamera.GetComponent<FpsCamera>().mouseSensitivity /= 3f;
-        weaponCamera.enabled = false;
-        sniperScope.SetActive(true);
-        scoped = true;
-    }
-
-    void Unscope()
-    {
-        fpsCamera.GetComponent<Camera>().fieldOfView = 60;
-        fpsCamera.GetComponent<FpsCamera>().mouseSensitivity = mouseSens;
-        weaponCamera.enabled = true;
-        sniperScope.SetActive(false);
-        scoped = false;
-    }
-
     private void SpawnBulletTrail(Vector3 hitPoint)
     {
         GameObject bulletTrailEffect = Instantiate(bulletTrail.gameObject, shootPoint.position, Quaternion.identity);
@@ -174,7 +131,7 @@ public class Sniper : MonoBehaviour
     void UpdateHud()
     {
         ammo.text = currentAmmo.ToString();
-        ammoReserves.text = "/" + curReserve.ToString();
+        ammoReserves.text = "/" + maxAmmo.ToString();
 
         if (currentAmmo <= 5) ammo.color = new Color(1, 0, 0, 1);
         else ammo.color = new Color(1, 1, 0, 1);

@@ -4,7 +4,6 @@ using UnityEngine.AI;
 public class EnemyMove : MonoBehaviour
 {
     public EnemyHp enemyHp;
-    public Rigidbody rb;
     public Animator anim;
     public AudioManager audio;
     public NavMeshAgent agent;
@@ -26,13 +25,16 @@ public class EnemyMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponentInChildren<Animator>();
         enemyHp = GetComponent<EnemyHp>();
         agent = GetComponent<NavMeshAgent>();
+
+        //agent.speed = Random.Range(2.4f, 8);
+        //agent.angularSpeed = 360;
     }
 
+    // Update is called once per frame
     public void Update()
     {
         if (enemyHp.dead == false)
