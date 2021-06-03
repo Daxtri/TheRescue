@@ -109,6 +109,10 @@ public class Sniper : MonoBehaviour
                     boss2.TakeDamage((int)damage);
                     break;
 
+                case "FuseBox":
+                    hit.transform.gameObject.GetComponent<FuseScript>().activated = true;
+                    break;
+
                 case null:
                     anim.SetTrigger("Shoot");
                     audio.Play("Gun Shot");

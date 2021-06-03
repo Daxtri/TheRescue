@@ -91,6 +91,9 @@
     <Compile Include="Assets\Scripts\HUD.cs" />
     <Compile Include="Assets\Scripts\Guns\Sniper.cs" />
     <Compile Include="Assets\Interact.cs" />
+    <Compile Include="Assets\Prefabs\LeverPrefabs\Lever.cs" />
+    <Compile Include="Assets\Scripts\FuseScripts\FuseScript.cs" />
+    <Compile Include="Assets\Scripts\FuseScripts\FuseManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -9,6 +9,7 @@ public class Generator : MonoBehaviour
     public List<GameObject> enemies;
     public float radius = 5f;
     public float distance = 10f;
+    public int MAX_ENEMIES = 3;
 
     void Update()
     {
@@ -16,7 +17,7 @@ public class Generator : MonoBehaviour
 
         if (spawnDistance < distance)
         {
-            if (enemies.Count < 2)
+            if (enemies.Count < MAX_ENEMIES)
             {
                 Vector3 randomPos = new Vector3(Random.Range(-radius, radius), transform.position.y, Random.Range(-radius, radius));
                 GameObject enemy1 = Instantiate(enemy, transform.position + randomPos, Quaternion.identity);

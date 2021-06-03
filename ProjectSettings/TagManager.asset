@@ -24,6 +24,7 @@ TagManager:
   - Boss2
   - RifleAmmo
   - SniperAmmo
+  - FuseBox
   layers:
   - Default
   - TransparentFX

@@ -102,6 +102,10 @@ public class HandGun : MonoBehaviour
                     Boss2Script boss2 = hit.transform.GetComponent<Boss2Script>();
                     boss2.TakeDamage((int)damage);
                     break;
+
+                case "FuseBox":
+                    hit.transform.gameObject.GetComponent<FuseScript>().activated = true;
+                    break;
             }
 
             SpawnBulletTrail(hit.point);
