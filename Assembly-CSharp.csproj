@@ -87,13 +87,16 @@
     <Compile Include="Assets\Scripts\Shaders\BloomEffect.cs" />
     <Compile Include="Assets\Scripts\Sound.cs" />
     <Compile Include="Assets\Scripts\Guns\HandGun.cs" />
+    <Compile Include="Assets\Scripts\LvL2\FuseScripts\FuseManager.cs" />
     <Compile Include="Assets\Boss_Run.cs" />
     <Compile Include="Assets\Scripts\HUD.cs" />
     <Compile Include="Assets\Scripts\Guns\Sniper.cs" />
     <Compile Include="Assets\Interact.cs" />
     <Compile Include="Assets\Prefabs\LeverPrefabs\Lever.cs" />
-    <Compile Include="Assets\Scripts\FuseScripts\FuseScript.cs" />
-    <Compile Include="Assets\Scripts\FuseScripts\FuseManager.cs" />
+    <Compile Include="Assets\Scripts\LvL2\FuseScripts\FuseScript.cs" />
+    <Compile Include="Assets\QuestLvL2.cs" />
+    <Compile Include="Assets\Scripts\QuestsLvL2.cs" />
+    <Compile Include="Assets\Scripts\LvL2\Quests2.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
