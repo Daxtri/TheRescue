@@ -28,7 +28,7 @@ public class HandGun : MonoBehaviour
 
     public Text ammo, ammoReserves;
 
-    public float currentAmmo, maxAmmo = 30f;
+    public int currentAmmo, maxAmmo = 30, curReserve, maxReserve = 30;
 
     private void Start()
     {
@@ -97,6 +97,10 @@ public class HandGun : MonoBehaviour
                 case "Boss":
                     BossScript boss = hit.transform.GetComponent<BossScript>();
                     boss.TakeDamage((int)damage);
+                    break;
+                case "Boss2":
+                    Boss2Script boss2 = hit.transform.GetComponent<Boss2Script>();
+                    boss2.TakeDamage((int)damage);
                     break;
             }
 

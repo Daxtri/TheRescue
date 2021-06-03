@@ -70,25 +70,6 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move((move * speed + velocity) * Time.deltaTime);
         Debug.Log(speed.ToString());
-
-        if (currentWeapon == 3)
-        {
-            if (Input.GetMouseButtonDown(1))
-            {
-                scoped = !scoped;
-
-                if (scoped)
-                {
-                    gun2.SetActive(false);
-                    sniperScope.SetActive(true);
-                }
-                else
-                {
-                    gun2.SetActive(true);
-                    sniperScope.SetActive(false);
-                }
-            }
-        }
     }
 
     private void Sprint()

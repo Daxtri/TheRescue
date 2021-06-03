@@ -11,9 +11,7 @@ public class Rifle : MonoBehaviour
     public float damage = 20f;
     public float range = 80f;
     public float fireRate = 15f;
-
     public bool isReloading;
-
     public Recoil recoil;
     public Camera fpsCamera;
     public ParticleSystem muzzleFlash;
@@ -21,14 +19,10 @@ public class Rifle : MonoBehaviour
     public GameObject bulletHole;
     public LineRenderer bulletTrail;
     public Transform shootPoint;
-
     public float headshotDamage, armDamage, legDamage, bodyDamage;
-
     public float nextShot = 0f;
-
     public Text ammo, ammoReserves;
-
-    public float currentAmmo, maxAmmo = 30f;
+    public int currentAmmo, maxAmmo = 30, curReserve, maxReserve = 90;
 
     private void Start()
     {
@@ -41,6 +35,7 @@ public class Rifle : MonoBehaviour
         audio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         anim = GetComponent<Animator>();
         currentAmmo = maxAmmo;
+        curReserve = maxReserve;
     }
 
     void Update()
@@ -63,10 +58,28 @@ public class Rifle : MonoBehaviour
 
     void Reload()
     {
-        currentAmmo = maxAmmo;
-    }
+            if (curReserve >= maxAmmo)
+            {
+                curReserve -= maxAmmo - currentAmmo;
+                currentAmmo = maxAmmo;
+            }
+            else
+            {
+                if (curReserve + currentAmmo >= maxAmmo)
+                {
+                    int temp = maxAmmo - currentAmmo;
+                    curReserve -= temp;
+                    currentAmmo += temp;
+                }
+                else
+                {
+                    currentAmmo += curReserve;
+                    curReserve = 0;
+                }
+            }
+        }
 
-    void Shoot()
+        void Shoot()
     {
         muzzleFlash.Play();
         RaycastHit hit;
@@ -98,6 +111,11 @@ public class Rifle : MonoBehaviour
                 case "Boss":
                     BossScript boss = hit.transform.GetComponent<BossScript>();
                     boss.TakeDamage((int)damage);
+                    break;
+
+                case "Boss2":
+                    Boss2Script boss2 = hit.transform.GetComponent<Boss2Script>();
+                    boss2.TakeDamage((int)damage);
                     break;
             }
 
@@ -147,7 +165,7 @@ public class Rifle : MonoBehaviour
     void UpdateHud()
     {
         ammo.text = currentAmmo.ToString();
-        ammoReserves.text = "/" + maxAmmo.ToString();
+        ammoReserves.text = "/" + curReserve.ToString();
 
         if (currentAmmo <= 5) ammo.color = new Color(1, 0, 0, 1);
         else ammo.color = new Color(1, 1, 0, 1);
