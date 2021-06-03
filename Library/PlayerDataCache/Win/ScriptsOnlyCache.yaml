@@ -36,10 +36,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -98,81 +96,81 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 5622}
+      Script: {instanceID: 1474}
     - Class: 114
-      Script: {instanceID: 5766}
+      Script: {instanceID: 1476}
     - Class: 114
-      Script: {instanceID: 5776}
+      Script: {instanceID: 1668}
     - Class: 114
-      Script: {instanceID: 5804}
+      Script: {instanceID: 1678}
     - Class: 114
-      Script: {instanceID: 6030}
+      Script: {instanceID: 1706}
     - Class: 114
-      Script: {instanceID: 6040}
+      Script: {instanceID: 1938}
     - Class: 114
-      Script: {instanceID: 6058}
+      Script: {instanceID: 1950}
     - Class: 114
-      Script: {instanceID: 6118}
+      Script: {instanceID: 1968}
     - Class: 114
-      Script: {instanceID: 6236}
+      Script: {instanceID: 2146}
     - Class: 114
-      Script: {instanceID: 6352}
+      Script: {instanceID: 2262}
     - Class: 114
-      Script: {instanceID: 6400}
+      Script: {instanceID: 2310}
     - Class: 114
-      Script: {instanceID: 6414}
+      Script: {instanceID: 2324}
     - Class: 114
-      Script: {instanceID: 6420}
+      Script: {instanceID: 2330}
     - Class: 114
-      Script: {instanceID: 6530}
+      Script: {instanceID: 2442}
     - Class: 114
-      Script: {instanceID: 6542}
+      Script: {instanceID: 2456}
     - Class: 114
-      Script: {instanceID: 6598}
+      Script: {instanceID: 2516}
     - Class: 114
-      Script: {instanceID: 6672}
+      Script: {instanceID: 2590}
     - Class: 114
-      Script: {instanceID: 6796}
+      Script: {instanceID: 2714}
     - Class: 114
-      Script: {instanceID: 6840}
+      Script: {instanceID: 2758}
     - Class: 114
-      Script: {instanceID: 6876}
+      Script: {instanceID: 2794}
     - Class: 114
-      Script: {instanceID: 6982}
+      Script: {instanceID: 2900}
     - Class: 114
-      Script: {instanceID: 6994}
+      Script: {instanceID: 2912}
     - Class: 114
-      Script: {instanceID: 7016}
+      Script: {instanceID: 2934}
     - Class: 114
-      Script: {instanceID: 7086}
+      Script: {instanceID: 3004}
     - Class: 114
-      Script: {instanceID: 7212}
+      Script: {instanceID: 3130}
     - Class: 114
-      Script: {instanceID: 7258}
+      Script: {instanceID: 3176}
     - Class: 114
-      Script: {instanceID: 7552}
+      Script: {instanceID: 3470}
     - Class: 114
-      Script: {instanceID: 7826}
+      Script: {instanceID: 3744}
     - Class: 114
-      Script: {instanceID: 7890}
+      Script: {instanceID: 3816}
     - Class: 114
-      Script: {instanceID: 7910}
+      Script: {instanceID: 3836}
     - Class: 114
-      Script: {instanceID: 7934}
+      Script: {instanceID: 3860}
     - Class: 114
-      Script: {instanceID: 8180}
+      Script: {instanceID: 4108}
     - Class: 114
-      Script: {instanceID: 8186}
+      Script: {instanceID: 4114}
     - Class: 114
-      Script: {instanceID: 8338}
+      Script: {instanceID: 4270}
     - Class: 114
-      Script: {instanceID: 8348}
+      Script: {instanceID: 4280}
     - Class: 114
-      Script: {instanceID: 8450}
+      Script: {instanceID: 4382}
     - Class: 114
-      Script: {instanceID: 8460}
+      Script: {instanceID: 4392}
     - Class: 114
-      Script: {instanceID: 8668}
+      Script: {instanceID: 4602}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -212,16 +210,22 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: 5ab533713adae59372fb3e10a585c186
-    assemblyName: Unity.Timeline.dll
-    namespaceName: UnityEngine.Timeline
-    className: AnimationPlayableAsset
+      Hash: 699619b86d9359741a4f58540298c80b
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Text
   - hash:
       serializedVersion: 2
       Hash: a6e561615949734e9f12f9b61661f43e
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Image
+  - hash:
+      serializedVersion: 2
+      Hash: 5ab533713adae59372fb3e10a585c186
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
       Hash: e9389e944eb81a3a9df56fcdb09ce6a9
@@ -348,12 +352,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_StyleSheet
-  - hash:
-      serializedVersion: 2
-      Hash: 699619b86d9359741a4f58540298c80b
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Text
   - hash:
       serializedVersion: 2
       Hash: f1d735cc1a21c3704ab52568f4fbfcf8
@@ -668,7 +666,7 @@ ScriptsOnlyBuild:
     className: ItemDrop
   - hash:
       serializedVersion: 2
-      Hash: 083ba7b03af2b6b1654241200712e9a5
+      Hash: 9fee45042c51e51d55a11f9546b4c506
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement
@@ -812,7 +810,7 @@ ScriptsOnlyBuild:
     className: TMP_ColorGradient
   - hash:
       serializedVersion: 2
-      Hash: 51b6f650ad1719f9235078976aea91f9
+      Hash: 36e30d75d09ef8bca99d542f54fd1511
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyMove
@@ -896,6 +894,12 @@ ScriptsOnlyBuild:
     className: Menu
   - hash:
       serializedVersion: 2
+      Hash: 0435a577e8df55f6b313095a8362a4fd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BloomEffect
+  - hash:
+      serializedVersion: 2
       Hash: fd68d84f33fad85aac38f2739c0ee270
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -908,7 +912,7 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: cbb3c03823f5fa9ab1e7d49549085fcf
+      Hash: b2b2acbcdc6a9552e8d96dfd2e8db27d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HandGun

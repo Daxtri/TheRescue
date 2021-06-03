@@ -22,6 +22,8 @@ TagManager:
   - Ground
   - BossBullet
   - Boss2
+  - RifleAmmo
+  - SniperAmmo
   layers:
   - Default
   - TransparentFX

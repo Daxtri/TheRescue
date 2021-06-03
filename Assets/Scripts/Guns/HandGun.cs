@@ -113,7 +113,7 @@ public class HandGun : MonoBehaviour
         GameObject impact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
 
         if (!hit.transform.tag.Equals("Legs") && !hit.transform.tag.Equals("Arms") && !hit.transform.tag.Equals("Head") && !hit.transform.tag.Equals("Body")
-           && !hit.transform.tag.Equals("Enemy") && !hit.transform.tag.Equals("Boss") && !hit.transform.tag.Equals("Vent"))
+           && !hit.transform.tag.Equals("Enemy") && !hit.transform.tag.Equals("Boss") && !hit.transform.tag.Equals("Boss2") && !hit.transform.tag.Equals("Vent"))
         {
             GameObject bulletHol3 = Instantiate(bulletHole, hit.point + hit.normal * 0.0001f, Quaternion.identity) as GameObject;
             bulletHol3.transform.LookAt(hit.point + hit.normal);

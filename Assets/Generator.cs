@@ -16,7 +16,7 @@ public class Generator : MonoBehaviour
 
         if (spawnDistance < distance)
         {
-            if (enemies.Count < 3)
+            if (enemies.Count < 2)
             {
                 Vector3 randomPos = new Vector3(Random.Range(-radius, radius), transform.position.y, Random.Range(-radius, radius));
                 GameObject enemy1 = Instantiate(enemy, transform.position + randomPos, Quaternion.identity);
