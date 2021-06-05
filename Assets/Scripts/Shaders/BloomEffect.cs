@@ -21,7 +21,7 @@ public class BloomEffect : MonoBehaviour {
 	[Range(0, 10)]
 	public float intensity = 1;
 	[Range(0, 1)]
-	public float softThreshold = 0.5f;
+	public float softThreshold = 0.7f;
 
 	RenderTexture[] textures = new RenderTexture[16];
 
