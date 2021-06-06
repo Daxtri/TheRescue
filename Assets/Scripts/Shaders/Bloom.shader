@@ -1,4 +1,4 @@
-﻿Shader "Custom/Bloom" {
+﻿Shader "My Bloom Shader" {
 	Properties {
 		_MainTex ("Texture", 2D) = "white" {}
 	}

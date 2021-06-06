@@ -15,11 +15,11 @@ D:/Tiago/IPCA/Projeto 2/TheRescue
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-55279
+49691
 Successfully changed project path to: D:/Tiago/IPCA/Projeto 2/TheRescue
 D:/Tiago/IPCA/Projeto 2/TheRescue
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 22.53 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 22.71 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.7f1 (c53830e277f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Resources/UnitySubsystems
@@ -35,353 +35,65 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56480
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56932
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001565 seconds.
+Registered in 0.001538 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 23.27 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 27.08 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.740 seconds
+- Completed reload, in  0.811 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.000451 seconds.
+Registered in 0.000470 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.32 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.570 seconds
+- Completed reload, in  0.604 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 0.58 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1606 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 178.2 MB.
-System memory in use after: 178.3 MB.
-
-Unloading 71 unused Assets to reduce memory usage. Loaded Objects now: 2073.
-Total: 1.873200 ms (FindLiveObjects: 0.161700 ms CreateObjectMapping: 0.084300 ms MarkObjects: 1.551100 ms  DeleteObjects: 0.075400 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/Materials/Lights2.mat
-  artifactKey: Guid(cde0379b31a60e34684e290935041d8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Lights2.mat using Guid(cde0379b31a60e34684e290935041d8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59386089bb22038e8f346a075754d60a') in 0.063232 seconds
-  Import took 0.065364 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000168 seconds.
-  path: Assets/Materials/Red Fuse.mat
-  artifactKey: Guid(6cf8b87816ab40f4a80cace7df4f556c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Red Fuse.mat using Guid(6cf8b87816ab40f4a80cace7df4f556c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a1f801ac9168a3990ac02c119f3cda9') in 0.008181 seconds
-  Import took 0.010137 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000132 seconds.
-  path: Assets/Materials/banner.png
-  artifactKey: Guid(33f1c41f0eaf81c4ba27e87a1bd7c344) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/banner.png using Guid(33f1c41f0eaf81c4ba27e87a1bd7c344) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a88ef324b0c7f2daa6362146483ffd2d') in 0.021836 seconds
-  Import took 0.023762 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000125 seconds.
-  path: Assets/Materials/OrangeFuse.mat
-  artifactKey: Guid(2f821d4f8f80f6544b176a8d330c7858) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/OrangeFuse.mat using Guid(2f821d4f8f80f6544b176a8d330c7858) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3997dd430b95b9a8ffc82297f42766ab') in 0.006690 seconds
-  Import took 0.008576 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000115 seconds.
-  path: Assets/Materials/Blue Fuse.mat
-  artifactKey: Guid(9f0a35125d10d384a81db510586d4b33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Blue Fuse.mat using Guid(9f0a35125d10d384a81db510586d4b33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '050d640c081d333ff11a3b9e286e21f2') in 0.007785 seconds
-  Import took 0.009747 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000123 seconds.
-  path: Assets/Materials/Flag.mat
-  artifactKey: Guid(1de6238eb3e426549875e7f5b575c58a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Flag.mat using Guid(1de6238eb3e426549875e7f5b575c58a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b230985dce8fb05086c5d7c3144ecb59') in 0.008106 seconds
-  Import took 0.010049 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000122 seconds.
-  path: Assets/Materials/Lights.mat
-  artifactKey: Guid(42f7b815334e9884fa1c1bf137026884) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Lights.mat using Guid(42f7b815334e9884fa1c1bf137026884) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d2ccd3b17e3e2678144f909af8fa091') in 0.008446 seconds
-  Import took 0.010402 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.179934 seconds.
-  path: Assets/Scripts/Shaders/Unlit_Glass.mat
-  artifactKey: Guid(dca247cbc664a764498ac611105cf352) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Shaders/Unlit_Glass.mat using Guid(dca247cbc664a764498ac611105cf352) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4a5a273823583d3d2abfc97c64f81cf') in 0.007360 seconds
-  Import took 0.009503 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000373 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
 Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Warning: Annotation not found!
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
-UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+Unloading 1608 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 178.4 MB.
+System memory in use after: 178.5 MB.
 
-[Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs line 575]
-
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.512 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1570 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 179.1 MB.
-System memory in use after: 179.2 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 2120.
-Total: 1.939100 ms (FindLiveObjects: 0.230900 ms CreateObjectMapping: 0.045800 ms MarkObjects: 1.605700 ms  DeleteObjects: 0.055600 ms)
+Unloading 71 unused Assets to reduce memory usage. Loaded Objects now: 2075.
+Total: 1.954000 ms (FindLiveObjects: 0.307300 ms CreateObjectMapping: 0.089600 ms MarkObjects: 1.469300 ms  DeleteObjects: 0.087000 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 54.852842 seconds.
-  path: Assets/Scripts/Shaders/Hologram_Shader.mat
-  artifactKey: Guid(403eac5e153efbe428679e4e3b9d5c77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Shaders/Hologram_Shader.mat using Guid(403eac5e153efbe428679e4e3b9d5c77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af7efc4a5a31d906380152defe54047d') in 0.040543 seconds
-  Import took 0.043162 seconds .
+  path: Assets/Scripts/Shaders/Holograma/Holograma.shader
+  artifactKey: Guid(2081a2ca6abefca4cbfb21fed4ea0b89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Shaders/Holograma/Holograma.shader using Guid(2081a2ca6abefca4cbfb21fed4ea0b89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d1f8014a1f4c00b8df8636fb3289622') in 0.019953 seconds
+  Import took 0.041801 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 51.965948 seconds.
-  path: Assets/Scripts/Shaders/aea46ebe45f42a4e4e90f7d429ef277b.png
-  artifactKey: Guid(4d00e54848eb4f742bca8542704050db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Shaders/aea46ebe45f42a4e4e90f7d429ef277b.png using Guid(4d00e54848eb4f742bca8542704050db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a932fd1b9f1c9eace5b8ff5cdaf3e47') in 0.012214 seconds
-  Import took 0.014659 seconds .
+  Time since last request: 40.754639 seconds.
+  path: Assets/Scripts/Shaders/Glass.shader
+  artifactKey: Guid(a9e15bce33ab4df4d86acae37957f1c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Shaders/Glass.shader using Guid(a9e15bce33ab4df4d86acae37957f1c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24b3de67dd0ec2aabaa5680f3a146513') in 0.005926 seconds
+  Import took 0.008125 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 69.850497 seconds.
-  path: Assets/Scripts/Shaders/Holograma
-  artifactKey: Guid(7a0fa912c5fdf224ca07078009cbc4b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Shaders/Holograma using Guid(7a0fa912c5fdf224ca07078009cbc4b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '218e466fbf8eae6923b113b37d0c5ac2') in 0.004666 seconds
-  Import took 0.006765 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000436 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.35 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Warning: Annotation not found!
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
-UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-[Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs line 575]
-
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.535 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1570 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 179.2 MB.
-System memory in use after: 179.2 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 2124.
-Total: 2.035400 ms (FindLiveObjects: 0.230000 ms CreateObjectMapping: 0.072900 ms MarkObjects: 1.682400 ms  DeleteObjects: 0.049500 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 11.725425 seconds.
-  path: Assets/Scripts/Shaders/Holograma/xbot.fbx
-  artifactKey: Guid(3169ce657ce47d844b0f9a2a67b5f7e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Shaders/Holograma/xbot.fbx using Guid(3169ce657ce47d844b0f9a2a67b5f7e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '854f4e4b31f79765cc8b92574aaf7bf4') in 0.105850 seconds
-  Import took 0.108410 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 744.694433 seconds.
-  path: Assets/Model/Materials/01 - Default.mat
-  artifactKey: Guid(b191460ef81b3ad41928e58af059f5e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Model/Materials/01 - Default.mat using Guid(b191460ef81b3ad41928e58af059f5e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb66adc039256668928b800d2d60f781') in 0.010967 seconds
-  Import took 0.013734 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000136 seconds.
-  path: Assets/Model/player_rifle_reload.FBX
-  artifactKey: Guid(66fbc8340b0407f47917897da18f233f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Model/player_rifle_reload.FBX using Guid(66fbc8340b0407f47917897da18f233f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88354a03cfb1b3c032a2fb15cc849759') in 0.034219 seconds
-  Import took 0.036351 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000118 seconds.
-  path: Assets/Model/Materials/01 - Default.mat
-  artifactKey: Guid(b191460ef81b3ad41928e58af059f5e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Model/Materials/01 - Default.mat using Guid(b191460ef81b3ad41928e58af059f5e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb66adc039256668928b800d2d60f781') in 0.008831 seconds
-  Import took 0.010890 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000115 seconds.
-  path: Assets/Model/player_reload_gun.FBX
-  artifactKey: Guid(92eea9f0193c19c419c8958fd1473f98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Model/player_reload_gun.FBX using Guid(92eea9f0193c19c419c8958fd1473f98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c2d299f6cd6729bde10ed27760ab9eb') in 0.034243 seconds
-  Import took 0.036227 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000160 seconds.
-  path: Assets/AssetStoreOriginals/_SNAPS_PrototypingAssets/ModernOffice_Interior/Materials/Black_snaps001.mat
-  artifactKey: Guid(8440f7c46cde87942a79d9125f40ae89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetStoreOriginals/_SNAPS_PrototypingAssets/ModernOffice_Interior/Materials/Black_snaps001.mat using Guid(8440f7c46cde87942a79d9125f40ae89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f56a5ff03f8bb19eb848f142b9e42ed') in 0.007603 seconds
-  Import took 0.009987 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000121 seconds.
-  path: Assets/Model/player_reload_gun.FBX
-  artifactKey: Guid(92eea9f0193c19c419c8958fd1473f98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Model/player_reload_gun.FBX using Guid(92eea9f0193c19c419c8958fd1473f98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c2d299f6cd6729bde10ed27760ab9eb') in 0.033850 seconds
-  Import took 0.036051 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000106 seconds.
-  path: Assets/Model/player_sniper_reload.FBX
-  artifactKey: Guid(4375eddd475d86d44a0ff23dda21a168) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Model/player_sniper_reload.FBX using Guid(4375eddd475d86d44a0ff23dda21a168) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05ebc70cfb1b98b47305a829597d5b04') in 0.028141 seconds
-  Import took 0.030213 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 115.363552 seconds.
-  path: Assets/Scripts/Shaders/Holograma/talking.controller
-  artifactKey: Guid(befad53caab20e241baf1b999523ee04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Shaders/Holograma/talking.controller using Guid(befad53caab20e241baf1b999523ee04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '212db30e7d9a48f06a9c430115bff8a7') in 0.007951 seconds
-  Import took 0.010165 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000422 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.35 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Warning: Annotation not found!
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
-UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-[Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs line 575]
-
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.514 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.33 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1570 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 193.4 MB.
-System memory in use after: 193.5 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 2132.
-Total: 1.821300 ms (FindLiveObjects: 0.156700 ms CreateObjectMapping: 0.038700 ms MarkObjects: 1.569700 ms  DeleteObjects: 0.055500 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 44.111871 seconds.
-  path: Assets/Scripts/Shaders/Holograma/Talking.controller
-  artifactKey: Guid(befad53caab20e241baf1b999523ee04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Shaders/Holograma/Talking.controller using Guid(befad53caab20e241baf1b999523ee04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb4942719526192c740c9a300a4acbc4') in 0.013428 seconds
-  Import took 0.015647 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.660483 seconds.
-  path: Assets/Scripts/Shaders/Holograma/Talking (1).anim
-  artifactKey: Guid(7e78d2e7c1be5754eb6a0c7b08dde289) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Shaders/Holograma/Talking (1).anim using Guid(7e78d2e7c1be5754eb6a0c7b08dde289) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5aa459028d4d15dafc7442c13ed830e6') in 0.018397 seconds
-  Import took 0.020623 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000388 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Warning: Annotation not found!
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs:575)
-UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/HierarchyListener.cs:21)
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-[Library/PackageCache/com.unity.probuilder@5.0.3/Editor/EditorCore/EditorUtility.cs line 575]
-
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.508 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.35 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1570 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 193.5 MB.
-System memory in use after: 193.6 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 2135.
-Total: 1.841200 ms (FindLiveObjects: 0.164800 ms CreateObjectMapping: 0.048800 ms MarkObjects: 1.583600 ms  DeleteObjects: 0.043300 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 98.676616 seconds.
-  path: Assets/Scripts/Shaders/Holograma/Hologram_Shader.mat
-  artifactKey: Guid(403eac5e153efbe428679e4e3b9d5c77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Shaders/Holograma/Hologram_Shader.mat using Guid(403eac5e153efbe428679e4e3b9d5c77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '669f4e54f467a12c7a042e0399cba16e') in 0.042374 seconds
-  Import took 0.044596 seconds .
+  Time since last request: 17.131197 seconds.
+  path: Assets/Scripts/Shaders/Bloom.shader
+  artifactKey: Guid(a093f4b33bf61f144af4afa8c3660b3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Shaders/Bloom.shader using Guid(a093f4b33bf61f144af4afa8c3660b3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66ac8bff787cf1533e8cbd00bf300324') in 0.005172 seconds
+  Import took 0.007412 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

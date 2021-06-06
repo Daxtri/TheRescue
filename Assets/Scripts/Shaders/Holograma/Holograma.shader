@@ -1,4 +1,4 @@
-﻿Shader "FX/Hologram Shader"
+﻿Shader "My Holograma Shader"
 {
 	Properties
 	{
