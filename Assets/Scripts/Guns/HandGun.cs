@@ -29,7 +29,6 @@ public class HandGun : MonoBehaviour
     public Text ammo, ammoReserves;
 
     public int currentAmmo, maxAmmo = 30, curReserve, maxReserve = 30;
-
     private void Start()
     {
         isReloading = false;
@@ -106,10 +105,15 @@ public class HandGun : MonoBehaviour
                 case "FuseBox":
                     hit.transform.gameObject.GetComponent<FuseScript>().activated = true;
                     break;
+
+                case "ShootingRange":
+                    hit.transform.gameObject.GetComponent<Range>().targetHealth -= 25;
+                    break;
             }
 
             SpawnBulletTrail(hit.point);
         }
+
 
         anim.SetTrigger("Shoot");
         audio.Play("Gun Shot");

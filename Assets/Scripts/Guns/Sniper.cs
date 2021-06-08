@@ -70,6 +70,7 @@ public class Sniper : MonoBehaviour
     void Reload()
     {
         currentAmmo = maxAmmo;
+        curReserve--;
     }
 
     void Shoot()

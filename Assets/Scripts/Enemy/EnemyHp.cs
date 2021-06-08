@@ -51,7 +51,7 @@ public class EnemyHp : MonoBehaviour
 
         if (instantiated == false)
         {
-            Instantiate(pickups[random.Next(0, 3)], transform.position, Quaternion.identity);
+            Instantiate(pickups[random.Next(0, 4)], transform.position, Quaternion.identity);
             instantiated = true;
         }
         time_lost++;

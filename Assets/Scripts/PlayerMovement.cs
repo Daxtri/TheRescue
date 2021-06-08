@@ -74,8 +74,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Sprint()
     {
-        //float _zMovement = Input.GetAxis("Vertical") && _zMovement == 1;
-
         if (Input.GetKeyDown(KeyCode.LeftShift)  && isGrounded)
         {
             speed = playerController.sprintSpeed;
@@ -150,6 +148,21 @@ public class PlayerMovement : MonoBehaviour
 
             case "Armor":
                 playerController.currentArmor += 20f;
+                Destroy(other.gameObject);
+                break;
+
+            case "RifleAmmo":
+                int bullets = gun1.GetComponent<Rifle>().curReserve + gun1.GetComponent<Rifle>().maxReserve / 3;
+                if (bullets > gun1.GetComponent<Rifle>().maxReserve)
+                    gun1.GetComponent<Rifle>().curReserve = gun1.GetComponent<Rifle>().maxReserve;
+
+                Destroy(other.gameObject);
+                break;
+
+            case "SniperAmmo":
+                int bullets1 = gun2.GetComponent<Sniper>().curReserve + gun2.GetComponent<Sniper>().maxReserve / 3;
+                if (bullets1 > gun2.GetComponent<Sniper>().maxReserve)
+                    gun2.GetComponent<Sniper>().curReserve = gun2.GetComponent<Sniper>().maxReserve;
                 Destroy(other.gameObject);
                 break;
         }

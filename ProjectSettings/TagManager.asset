@@ -25,6 +25,8 @@ TagManager:
   - RifleAmmo
   - SniperAmmo
   - FuseBox
+  - Armor
+  - ShootingRange
   layers:
   - Default
   - TransparentFX

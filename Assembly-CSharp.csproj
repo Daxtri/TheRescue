@@ -96,8 +96,10 @@
     <Compile Include="Assets\Scripts\Guns\Sniper.cs" />
     <Compile Include="Assets\Interact.cs" />
     <Compile Include="Assets\Prefabs\LeverPrefabs\Lever.cs" />
-    <Compile Include="Assets\Scripts\LvL2\FuseScripts\FuseScript.cs" />
     <Compile Include="Assets\Scripts\Shaders\Holograma\GlitchControl.cs" />
+    <Compile Include="Assets\Scripts\LvL2\FuseScripts\FuseScript.cs" />
+    <Compile Include="Assets\Range.cs" />
+    <Compile Include="Assets\SpawnPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Scripts\Shaders\Holograma\Holograma.shader" />
