@@ -41,10 +41,17 @@ public class BossScript : MonoBehaviour
         if (currentHealth <= 0)
             Die();
 
-        if (Vector3.Distance(transform.position, player.transform.position) <= detectionRange)
+        //if (Vector3.Distance(transform.position, player.transform.position) <= detectionRange)
+        if (player.GetComponent<PlayerMovement>().isInRangeBoss == true)
         {
             anim.SetBool("Run", true);
             healthBar.gameObject.SetActive(true);
+            Move();
+        }
+        else
+        {
+            anim.SetBool("Run", false);
+            agent.SetDestination(transform.position);
         }
     }
 
@@ -52,6 +59,22 @@ public class BossScript : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+    }
+
+    void Move()
+    {
+        agent.SetDestination(player.transform.position);
+        float distance = Vector3.Distance(anim.transform.position, player.transform.position);
+        if (distance <= attackRange)
+        {
+            agent.isStopped = true;
+            int rand = Random.Range(1, 4);
+            if (rand == 1)
+                anim.SetTrigger("Attack");
+            else
+                anim.SetTrigger("Attack2");
+        }
+        agent.isStopped = false;
     }
 
     void Die()

@@ -27,6 +27,8 @@ TagManager:
   - FuseBox
   - Armor
   - ShootingRange
+  - ArenaCollision2
+  - ArenaCollision1
   layers:
   - Default
   - TransparentFX

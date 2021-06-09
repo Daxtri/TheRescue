@@ -6015,6 +6015,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4481731013709450, guid: b3e1ae4b20d1a0845a32d4418535010b, type: 3}
   m_PrefabInstance: {fileID: 1397241847}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &355009936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 355009937}
+  - component: {fileID: 355009938}
+  m_Layer: 0
+  m_Name: ArenaCollision
+  m_TagString: ArenaCollision1
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &355009937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355009936}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -277.7, y: 0, z: 7.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 403403395}
+  m_RootOrder: 110
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &355009938
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355009936}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 68.02519, y: 11.396065, z: 53.36557}
+  m_Center: {x: -0.37232208, y: -1.1184728, z: 6.682205}
 --- !u!1 &355132598
 GameObject:
   m_ObjectHideFlags: 0
@@ -6649,6 +6693,7 @@ Transform:
   - {fileID: 1112356354}
   - {fileID: 633870230}
   - {fileID: 1132353167}
+  - {fileID: 355009937}
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9435,7 +9480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622965113}
   m_LocalRotation: {x: -0, y: -0.4314738, z: -0, w: -0.9021255}
-  m_LocalPosition: {x: 2, y: 1.23, z: -235.5}
+  m_LocalPosition: {x: -266.5, y: 1.23, z: -159.2}
   m_LocalScale: {x: 1.1753079, y: 1.1753079, z: 1.1753079}
   m_Children:
   - {fileID: 2045155783}
@@ -9455,6 +9500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c63b6f71142cd469fe9ea0c97fce04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInRangeBoss: 0
+  isInRangeBoss2: 0
   scoped: 0
   sniperScope: {fileID: 750095249}
   playerController: {fileID: 622965121}
@@ -47225,6 +47272,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142257013}
   m_CullTransparentMesh: 1
+--- !u!1 &2146451705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2146451706}
+  - component: {fileID: 2146451708}
+  - component: {fileID: 2146451707}
+  m_Layer: 0
+  m_Name: ArenaCollision2
+  m_TagString: ArenaCollision2
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2146451706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146451705}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 54.4, y: -11.55, z: 61.36}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2070941375}
+  m_RootOrder: 194
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2146451707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146451705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43ea6db509e814240a006c169d75ce96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2146451708
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146451705}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 77.583176, y: 16.559803, z: 80.53046}
+  m_Center: {x: 1.448204, y: 2.4623847, z: -4.643585}
 --- !u!1001 &4528153190553884966
 PrefabInstance:
   m_ObjectHideFlags: 0

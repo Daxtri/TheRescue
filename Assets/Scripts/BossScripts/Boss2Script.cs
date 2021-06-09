@@ -49,15 +49,20 @@ public class Boss2Script : MonoBehaviour
         {
             float dist = Vector3.Distance(transform.position, player.transform.position);
 
-            if (Vector3.Distance(transform.position, player.transform.position) <= detectionRange)
+            // if (Vector3.Distance(transform.position, player.transform.position) <= detectionRange) //player.isInRange
+            if (player.GetComponent<PlayerMovement>().isInRangeBoss2 == true)
             {
                 anim.SetBool("Run", true);
                 healthBar.gameObject.SetActive(true);
+                ChasePlayer();
+            }
+            else
+            {
+                anim.SetBool("Run", false);
+                agent.SetDestination(transform.position);
             }
 
             playerinAttackRange = Physics.CheckSphere(transform.position, attackRange, playerMask);
-
-            if (!playerinAttackRange) ChasePlayer();
             if (playerinAttackRange) Attack();
         }
     }
@@ -102,7 +107,6 @@ public class Boss2Script : MonoBehaviour
             rb.AddForce(transform.forward * 22f, ForceMode.Impulse);
             rb.AddForce(transform.up * 1f, ForceMode.Impulse);
 
-
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
@@ -116,7 +120,5 @@ public class Boss2Script : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 }
