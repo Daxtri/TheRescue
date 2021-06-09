@@ -47,14 +47,13 @@ public class Boss2Script : MonoBehaviour
 
         if (isDead == false)
         {
-            float dist = Vector3.Distance(transform.position, player.transform.position);
-
-            // if (Vector3.Distance(transform.position, player.transform.position) <= detectionRange) //player.isInRange
             if (player.GetComponent<PlayerMovement>().isInRangeBoss2 == true)
             {
                 anim.SetBool("Run", true);
                 healthBar.gameObject.SetActive(true);
                 ChasePlayer();
+
+                if (playerinAttackRange) Attack();
             }
             else
             {
@@ -63,7 +62,7 @@ public class Boss2Script : MonoBehaviour
             }
 
             playerinAttackRange = Physics.CheckSphere(transform.position, attackRange, playerMask);
-            if (playerinAttackRange) Attack();
+            
         }
     }
 
