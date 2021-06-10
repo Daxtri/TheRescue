@@ -122,6 +122,14 @@ public class Rifle : MonoBehaviour
                 case "FuseBox":
                     hit.transform.gameObject.GetComponent<FuseScript>().activated = true;
                     break;
+
+                case "RifleRange":
+                    hit.transform.gameObject.GetComponent<Range>().targetHealth -= (int)damage;
+                    break;
+
+                case "ShootingRange":
+                    hit.transform.gameObject.GetComponent<Range>().targetHealth -= (int)damage;
+                    break;
             }
 
             SpawnBulletTrail(hit.point);

@@ -29,6 +29,9 @@ TagManager:
   - ShootingRange
   - ArenaCollision2
   - ArenaCollision1
+  - PistolRange
+  - RifleRange
+  - SniperRange
   layers:
   - Default
   - TransparentFX

@@ -110,6 +110,10 @@ public class HandGun : MonoBehaviour
                 case "ShootingRange":
                     hit.transform.gameObject.GetComponent<Range>().targetHealth -= 25;
                     break;
+
+                case "PistolRange":
+                    hit.transform.gameObject.GetComponent<Range>().targetHealth -= 25;
+                    break;
             }
 
             SpawnBulletTrail(hit.point);

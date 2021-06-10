@@ -118,9 +118,12 @@ public class Sniper : MonoBehaviour
                     hit.transform.gameObject.GetComponent<FuseScript>().activated = true;
                     break;
 
-                case null:
-                    anim.SetTrigger("Shoot");
-                    audio.Play("Gun Shot");
+                case "SniperRange":
+                    hit.transform.gameObject.GetComponent<Range>().targetHealth -= (int)damage;
+                    break;
+
+                case "ShootingRange":
+                    hit.transform.gameObject.GetComponent<Range>().targetHealth -= (int)damage;
                     break;
             }
 
