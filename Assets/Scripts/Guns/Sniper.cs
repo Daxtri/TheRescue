@@ -38,7 +38,6 @@ public class Sniper : MonoBehaviour
         audio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         anim = GetComponent<Animator>();
         currentAmmo = maxAmmo;
-        //curReserve = maxReserve;
     }
 
     void Update()
@@ -79,6 +78,7 @@ public class Sniper : MonoBehaviour
 
     void Shoot()
     {
+        Unscope();
         muzzleFlash.Play();
         RaycastHit hit;
 
@@ -152,7 +152,7 @@ public class Sniper : MonoBehaviour
         sniperScope.SetActive(true);
         scoped = true;
     }
-    void Unscope()
+    public void Unscope()
     {
         fpsCamera.GetComponent<Camera>().fieldOfView = 60;
         fpsCamera.GetComponent<FpsCamera>().mouseSensitivity = mouseSens;

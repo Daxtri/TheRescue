@@ -7,6 +7,8 @@ public class SpawnPlayer : MonoBehaviour
     public GameObject player;
     public List<GameObject> targetsList;
     public GameObject pos;
+    public Rifle rf;
+    public Sniper sn;
     public bool positioned;
 
     private void Start()
@@ -33,13 +35,20 @@ public class SpawnPlayer : MonoBehaviour
         {
             player.transform.position = pos.transform.position;
             StartCoroutine(Position());
+            ResetAmmo();
         }
     }
 
     IEnumerator Position()
     {
-        yield return new WaitForSeconds(0.5f);
-        player.GetComponent<HandGun>().curReserve = 0;
+        yield return new WaitForSeconds(0.8f);
+        
         positioned = true;
+    }
+
+    void ResetAmmo()
+    {
+        rf.curReserve = 0;
+        sn.curReserve = 0;
     }
 }

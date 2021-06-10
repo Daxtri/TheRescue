@@ -6,7 +6,7 @@ public class FpsCamera : MonoBehaviour
 {
     public Menu menu;
     public Transform player;
-    public float mouseSensitivity = 100f;
+    public float mouseSensitivity = 2.5f;
     float xRotation = 0f;
     // Start is called before the first frame update
     void Start()

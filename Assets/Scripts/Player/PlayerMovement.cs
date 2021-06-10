@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject sniperScope;
     public PlayerController playerController;
     public GameObject gun0, gun1, gun2;
+    public Sniper sniper;
     public CharacterController controller;
     public GameObject camera;
 
@@ -39,13 +40,25 @@ public class PlayerMovement : MonoBehaviour
         Crouch();
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
             SwitchWeapon(1);
+            sniper.Unscope();
+            camera.GetComponent<FpsCamera>().mouseSensitivity = 2.5f;
+        }
 
         else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
             SwitchWeapon(2);
+            sniper.Unscope();
+            camera.GetComponent<FpsCamera>().mouseSensitivity = 2.5f;
+        }
 
         else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
             SwitchWeapon(3);
+            sniper.Unscope();
+            camera.GetComponent<FpsCamera>().mouseSensitivity = 2.5f;
+        }
 
         if (Input.GetKeyDown(KeyCode.Q))
             SwitchWeapon(previousWeapon);
@@ -77,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Sprint()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift)  && isGrounded)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && isGrounded)
         {
             speed = playerController.sprintSpeed;
             Debug.Log("Sprinting");
@@ -189,7 +202,7 @@ public class PlayerMovement : MonoBehaviour
     {
         string tag = other.tag;
 
-        switch(tag)
+        switch (tag)
         {
             case "ArenaCollision1":
                 isInRangeBoss = false;

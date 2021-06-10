@@ -1619,6 +1619,8 @@ MonoBehaviour:
   - {fileID: 845687141}
   - {fileID: 1723254834}
   pos: {fileID: 195259308}
+  rf: {fileID: 1637208276}
+  sn: {fileID: 1345786494}
   positioned: 0
 --- !u!4 &165458791
 Transform:
@@ -9122,7 +9124,7 @@ MonoBehaviour:
   ammoReserves: {fileID: 963869751}
   currentAmmo: 0
   maxAmmo: 30
-  curReserve: 0
+  curReserve: 30
   maxReserve: 30
 --- !u!114 &597166685
 MonoBehaviour:
@@ -9514,7 +9516,6 @@ GameObject:
   - component: {fileID: 622965121}
   - component: {fileID: 622965122}
   - component: {fileID: 622965124}
-  - component: {fileID: 622965123}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -9609,7 +9610,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622965113}
   m_LocalRotation: {x: -0, y: -0.4314738, z: -0, w: -0.9021255}
-  m_LocalPosition: {x: -290.85, y: 8.21, z: -284.35}
+  m_LocalPosition: {x: 0.2, y: 6.107, z: -238.97}
   m_LocalScale: {x: 1.1753079, y: 1.1753079, z: 1.1753079}
   m_Children:
   - {fileID: 2045155783}
@@ -9637,8 +9638,9 @@ MonoBehaviour:
   gun0: {fileID: 597166682}
   gun1: {fileID: 1637208273}
   gun2: {fileID: 1345786491}
+  sniper: {fileID: 1345786494}
   controller: {fileID: 622965120}
-  camera: {fileID: 0}
+  camera: {fileID: 963194225}
   groundCheck: {fileID: 1069397219}
   groundDistance: 0.4
   groundMask:
@@ -9703,20 +9705,6 @@ MonoBehaviour:
   hpBar: {fileID: 751785225}
   armorBar: {fileID: 948332586}
   counter: {fileID: 1501669700}
---- !u!114 &622965123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 622965113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2695b12a6fc32a145ae7fe9839429de0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enterPos: {x: 0, y: 0, z: 0}
-  exitPos: {x: 0, y: 0, z: 0}
 --- !u!136 &622965124
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -26427,7 +26415,7 @@ MonoBehaviour:
   scoped: 0
   currentAmmo: 0
   maxAmmo: 1
-  curReserve: 0
+  curReserve: 12
   maxReserve: 12
 --- !u!95 &1345786495
 Animator:
@@ -40129,7 +40117,7 @@ MonoBehaviour:
   ammoReserves: {fileID: 548671002}
   currentAmmo: 0
   maxAmmo: 30
-  curReserve: 0
+  curReserve: 90
   maxReserve: 90
 --- !u!95 &1637208277
 Animator:
