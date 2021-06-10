@@ -157,17 +157,21 @@ public class PlayerMovement : MonoBehaviour
                 break;
 
             case "RifleAmmo":
-                int bullets = gun1.GetComponent<Rifle>().curReserve + gun1.GetComponent<Rifle>().maxReserve / 3;
+                int bullets = gun1.GetComponent<Rifle>().curReserve + (gun1.GetComponent<Rifle>().maxReserve / 6);
                 if (bullets > gun1.GetComponent<Rifle>().maxReserve)
                     gun1.GetComponent<Rifle>().curReserve = gun1.GetComponent<Rifle>().maxReserve;
+                else
+                    gun1.GetComponent<Rifle>().curReserve += bullets;
 
                 Destroy(other.gameObject);
                 break;
 
             case "SniperAmmo":
-                int bullets1 = gun2.GetComponent<Sniper>().curReserve + gun2.GetComponent<Sniper>().maxReserve / 3;
+                int bullets1 = gun2.GetComponent<Sniper>().curReserve + (gun2.GetComponent<Sniper>().maxReserve / 3);
                 if (bullets1 > gun2.GetComponent<Sniper>().maxReserve)
                     gun2.GetComponent<Sniper>().curReserve = gun2.GetComponent<Sniper>().maxReserve;
+                else
+                    gun2.GetComponent<Sniper>().curReserve += bullets1;
                 Destroy(other.gameObject);
                 break;
 
