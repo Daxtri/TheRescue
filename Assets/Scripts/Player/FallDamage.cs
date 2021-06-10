@@ -15,7 +15,7 @@ public class FallDamage : MonoBehaviour
 
             if(exitPos.y - enterPos.y > 2f)
             {
-                this.GetComponent<PlayerController>().currentHealth -= 2 * exitPos.y - enterPos.y;
+                this.GetComponent<PlayerController>().currentHealth -=  exitPos.y - enterPos.y;
             }
         }
     }
