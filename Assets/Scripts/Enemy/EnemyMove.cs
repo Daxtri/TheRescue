@@ -30,9 +30,6 @@ public class EnemyMove : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         enemyHp = GetComponent<EnemyHp>();
         agent = GetComponent<NavMeshAgent>();
-
-        //agent.speed = Random.Range(2.4f, 8);
-        //agent.angularSpeed = 360;
     }
 
     // Update is called once per frame

@@ -53,10 +53,11 @@ public class HandGun : MonoBehaviour
                 Shoot();
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < maxAmmo && !isReloading)
         {
             anim.SetTrigger("Reload");
             isReloading = true;
+            GetComponentInParent<PlayerController>().isReloading = true;
         }
     }
 

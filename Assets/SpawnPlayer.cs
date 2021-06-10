@@ -39,6 +39,7 @@ public class SpawnPlayer : MonoBehaviour
     IEnumerator Position()
     {
         yield return new WaitForSeconds(0.5f);
+        player.GetComponent<HandGun>().curReserve = 0;
         positioned = true;
     }
 }

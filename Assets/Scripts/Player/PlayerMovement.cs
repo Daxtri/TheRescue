@@ -105,29 +105,31 @@ public class PlayerMovement : MonoBehaviour
 
     void SwitchWeapon(int curWeapon)
     {
-        switch (curWeapon)
+        if (GetComponent<PlayerController>().isReloading == false)
         {
-            case 1:
-                gun0.SetActive(true);
-                gun1.SetActive(false);
-                gun2.SetActive(false);
-                break;
+            switch (curWeapon)
+            {
+                case 1:
+                    gun0.SetActive(true);
+                    gun1.SetActive(false);
+                    gun2.SetActive(false);
+                    break;
 
-            case 2:
-                gun0.SetActive(false);
-                gun1.SetActive(true);
-                gun2.SetActive(false);
-                break;
+                case 2:
+                    gun0.SetActive(false);
+                    gun1.SetActive(true);
+                    gun2.SetActive(false);
+                    break;
 
-            case 3:
-                gun0.SetActive(false);
-                gun1.SetActive(false);
-                gun2.SetActive(true);
-                break;
+                case 3:
+                    gun0.SetActive(false);
+                    gun1.SetActive(false);
+                    gun2.SetActive(true);
+                    break;
+            }
+            previousWeapon = currentWeapon;
+            currentWeapon = curWeapon;
         }
-
-        previousWeapon = currentWeapon;
-        currentWeapon = curWeapon;
     }
 
     private void OnTriggerStay(Collider other)

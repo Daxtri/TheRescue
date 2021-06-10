@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public float crouchHeight;
 
+    public bool isReloading;
+
     void Awake()
     {
         maxHealth = 100f;
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour
         currentArmor = maxArmor;
         originalHeight = GetComponent<CharacterController>().height;
         crouchHeight = originalHeight/2;
+        isReloading = false;
     }
     void Update()
     {

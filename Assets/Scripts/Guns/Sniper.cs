@@ -38,7 +38,7 @@ public class Sniper : MonoBehaviour
         audio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         anim = GetComponent<Animator>();
         currentAmmo = maxAmmo;
-        curReserve = maxReserve;
+        //curReserve = maxReserve;
     }
 
     void Update()
@@ -59,18 +59,22 @@ public class Sniper : MonoBehaviour
             if (currentAmmo > 0)
                 Shoot();
         }
-        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < 1)
+        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < 1 && curReserve > 0)
         {
             anim.SetTrigger("Reload");
             Unscope();
             isReloading = true;
+            GetComponentInParent<PlayerController>().isReloading = true;
         }
     }
 
     void Reload()
     {
-        currentAmmo = maxAmmo;
-        curReserve--;
+        if (curReserve > 0)
+        {
+            currentAmmo = maxAmmo;
+            curReserve--;
+        }
     }
 
     void Shoot()

@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1102 &-1057340122414634122
 AnimatorState:
   serializedVersion: 6

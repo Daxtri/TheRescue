@@ -35,7 +35,7 @@ public class Rifle : MonoBehaviour
         audio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         anim = GetComponent<Animator>();
         currentAmmo = maxAmmo;
-        curReserve = maxReserve;
+        //curReserve = maxReserve;
     }
 
     void Update()
@@ -49,10 +49,11 @@ public class Rifle : MonoBehaviour
                 Shoot();
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && currentAmmo != maxAmmo && curReserve > 0 && !isReloading)
         {
             anim.SetTrigger("Reload");
             isReloading = true;
+            GetComponentInParent<PlayerController>().isReloading = true;
         }
     }
 
