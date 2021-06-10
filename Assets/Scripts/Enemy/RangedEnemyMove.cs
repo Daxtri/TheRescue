@@ -79,7 +79,7 @@ public class RangedEnemyMove : MonoBehaviour
     public void ChasePlayer()
     {
         agent.isStopped = true;
-        anim.SetBool("Run", true);
+        anim.SetBool("Running", true);
         agent.SetDestination(player.transform.position);
     }
 

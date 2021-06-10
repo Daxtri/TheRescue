@@ -45,6 +45,8 @@ public class Rifle : MonoBehaviour
         if (Input.GetButton("Fire1") && Time.time >= nextShot && isReloading == false)
         {
             nextShot = Time.time + 1f/ fireRate;
+            if (currentAmmo == 0)
+                audio.Play("Empty");
             if (currentAmmo > 0)
                 Shoot();
         }
@@ -54,31 +56,33 @@ public class Rifle : MonoBehaviour
             anim.SetTrigger("Reload");
             isReloading = true;
             GetComponentInParent<PlayerController>().isReloading = true;
+
+            audio.Play("RifleReload");
         }
     }
 
     void Reload()
     {
-            if (curReserve >= maxAmmo)
+        if (curReserve >= maxAmmo)
+        {
+            curReserve -= maxAmmo - currentAmmo;
+            currentAmmo = maxAmmo;
+        }
+        else
+        {
+            if (curReserve + currentAmmo >= maxAmmo)
             {
-                curReserve -= maxAmmo - currentAmmo;
-                currentAmmo = maxAmmo;
+                int temp = maxAmmo - currentAmmo;
+                curReserve -= temp;
+                currentAmmo += temp;
             }
             else
             {
-                if (curReserve + currentAmmo >= maxAmmo)
-                {
-                    int temp = maxAmmo - currentAmmo;
-                    curReserve -= temp;
-                    currentAmmo += temp;
-                }
-                else
-                {
-                    currentAmmo += curReserve;
-                    curReserve = 0;
-                }
+                currentAmmo += curReserve;
+                curReserve = 0;
             }
         }
+    }
 
         void Shoot()
     {
@@ -139,7 +143,7 @@ public class Rifle : MonoBehaviour
             recoil.Fire();
 
             anim.SetTrigger("Shoot");
-            audio.Play("Gun Shot");
+            audio.Play("Rifle Shot");
 
             currentAmmo--;
             return;
@@ -148,7 +152,7 @@ public class Rifle : MonoBehaviour
         recoil.Fire();
 
         anim.SetTrigger("Shoot");
-        audio.Play("Gun Shot");
+        audio.Play("Rifle Shot");
 
         GameObject impact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
 

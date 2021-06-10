@@ -49,7 +49,9 @@ public class HandGun : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && Time.time >= nextShot && isReloading == false)
         {
             nextShot = Time.time + 0.5f / fireRate;
-            if (currentAmmo > 0)
+            if (currentAmmo == 0)
+                audio.Play("Empty");
+            else if (currentAmmo > 0)
                 Shoot();
         }
 
@@ -68,6 +70,8 @@ public class HandGun : MonoBehaviour
 
     void Shoot()
     {
+       
+
         muzzleFlash.Play();
         RaycastHit hit;
 

@@ -49,6 +49,8 @@ public class SpawnPlayer : MonoBehaviour
     void ResetAmmo()
     {
         rf.curReserve = 0;
+        rf.currentAmmo = 0;
         sn.curReserve = 0;
+        sn.currentAmmo = 0;
     }
 }

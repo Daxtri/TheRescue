@@ -5,10 +5,11 @@ using UnityEngine.AI;
 
 public class BossScript : MonoBehaviour
 {
-    GameObject player;
+    public AudioManager audio;
+    public GameObject player;
     public HealthBar healthBar;
     public Animator anim;
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
 
     public bool isDead;
 
@@ -26,6 +27,7 @@ public class BossScript : MonoBehaviour
 
     private void Start()
     {
+        audio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         isDead = false;
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -41,9 +43,9 @@ public class BossScript : MonoBehaviour
         if (currentHealth <= 0)
             Die();
 
-        //if (Vector3.Distance(transform.position, player.transform.position) <= detectionRange)
+
         if (player.GetComponent<PlayerMovement>().isInRangeBoss == true)
-        {
+        { 
             anim.SetBool("Run", true);
             healthBar.gameObject.SetActive(true);
             Move();
@@ -51,6 +53,7 @@ public class BossScript : MonoBehaviour
         else
         {
             anim.SetBool("Run", false);
+            healthBar.gameObject.SetActive(false);
             agent.SetDestination(transform.position);
         }
     }
@@ -64,17 +67,6 @@ public class BossScript : MonoBehaviour
     void Move()
     {
         agent.SetDestination(player.transform.position);
-        float distance = Vector3.Distance(anim.transform.position, player.transform.position);
-        if (distance <= attackRange)
-        {
-            agent.isStopped = true;
-            int rand = Random.Range(1, 4);
-            if (rand == 1)
-                anim.SetTrigger("Attack");
-            else
-                anim.SetTrigger("Attack2");
-        }
-        agent.isStopped = false;
     }
 
     void Die()
@@ -104,6 +96,7 @@ public class BossScript : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attackAnchor.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 }

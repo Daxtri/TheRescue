@@ -5,7 +5,7 @@ using UnityEngine;
 public class quest0 : MonoBehaviour
 {
     private DialogueSystem dialogueSystem;
-
+    public SpawnPlayer spawn;
     //Nome do NPC
     public string Name;
 
@@ -23,7 +23,7 @@ public class quest0 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<SpawnPlayer>().positioned)
+        if (spawn.positioned)
         {
             dialogueSystem.DropDialogue();
         }

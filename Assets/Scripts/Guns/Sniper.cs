@@ -55,6 +55,8 @@ public class Sniper : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && Time.time >= nextShot)
         {
             nextShot = Time.time + .5f / fireRate;
+            if (currentAmmo == 0)
+                audio.Play("Empty");
             if (currentAmmo > 0)
                 Shoot();
         }
@@ -74,6 +76,8 @@ public class Sniper : MonoBehaviour
             currentAmmo = maxAmmo;
             curReserve--;
         }
+
+        audio.Play("SniperReload");
     }
 
     void Shoot()
@@ -131,7 +135,7 @@ public class Sniper : MonoBehaviour
         }
 
         anim.SetTrigger("Shoot");
-        audio.Play("Gun Shot");
+        audio.Play("SniperShot");
 
         GameObject impact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
 

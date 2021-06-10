@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\FpsCamera.cs" />
     <Compile Include="Assets\PickUpAnim.cs" />
     <Compile Include="Assets\Scripts\LvL1\Open.cs" />
+    <Compile Include="Assets\quest0.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem\DialogueSystem.cs" />
     <Compile Include="Assets\Prefabs\2nd Boss\BulletDamage.cs" />
     <Compile Include="Assets\Scripts\Guns\Rifle.cs" />
@@ -102,7 +103,7 @@
     <Compile Include="Assets\Prefabs\LeverPrefabs\Lever.cs" />
     <Compile Include="Assets\Scripts\Shaders\Holograma\GlitchControl.cs" />
     <Compile Include="Assets\Scripts\LvL2\FuseScripts\FuseScript.cs" />
-    <Compile Include="Assets\quest0.cs" />
+    <Compile Include="Assets\Scripts\Menu\DeathMenu.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Scripts\Shaders\Holograma\Holograma.shader" />

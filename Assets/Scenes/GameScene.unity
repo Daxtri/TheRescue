@@ -9983,6 +9983,7 @@ MonoBehaviour:
   sniper: {fileID: 1345786494}
   controller: {fileID: 622965120}
   camera: {fileID: 963194225}
+  audio: {fileID: 0}
   groundCheck: {fileID: 1069397219}
   groundDistance: 0.4
   groundMask:
@@ -15573,11 +15574,61 @@ MonoBehaviour:
     volume: 0.25
     pitch: 1
     source: {fileID: 0}
+    loop: 0
   - name: Vent
     clip: {fileID: 8300000, guid: e206989d370a9bc4194f585eb35ef74d, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
+    loop: 0
+  - name: Rifle Shot
+    clip: {fileID: 8300000, guid: 32579484db310de45bc76d8b232c6589, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: SniperShot
+    clip: {fileID: 8300000, guid: ee573ec768f693543a0d7d1c68f5c560, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Empty
+    clip: {fileID: 8300000, guid: c915847ffb0e4d64894ca90fdc6af05b, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Jump
+    clip: {fileID: 8300000, guid: 70f96c9d22e712244930e08e02971f30, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: SniperReload
+    clip: {fileID: 8300000, guid: 9dc2c47ec953efd4ca0be947ed700b75, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: RifleReload
+    clip: {fileID: 8300000, guid: 8312eb06f9d4cd647a5e0146c62414ce, type: 3}
+    volume: 1
+    pitch: 0.7
+    source: {fileID: 0}
+    loop: 0
+  - name: PlayerWalk
+    clip: {fileID: 8300000, guid: 7388c18d46e0f7847884c9105890b2cc, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: PlayerSprint
+    clip: {fileID: 8300000, guid: 59e055502887f7f4e9c9641e5933de97, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
 --- !u!4 &906270072
 Transform:
   m_ObjectHideFlags: 0
@@ -25690,8 +25741,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63e08ea511f6c746987030ef1b8316a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 0}
+  player: {fileID: 0}
   healthBar: {fileID: 247915925}
-  anim: {fileID: 0}
+  anim: {fileID: 1243879854}
+  agent: {fileID: 1243879857}
   isDead: 0
   maxHealth: 5000
   currentHealth: 0
@@ -25699,7 +25753,7 @@ MonoBehaviour:
   deathTimer: 10
   attackDamage: 20
   attackAnchor: {fileID: 1846966924}
-  attackRange: 0.83
+  attackRange: 2.68
   attackMask:
     serializedVersion: 2
     m_Bits: 256
@@ -45283,6 +45337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f3f553a13a5fbf44845fdcdea991a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawn: {fileID: 165458790}
   Name: FirstHolo
   phrases:
   - 'Bem vindo ao The Rescue!

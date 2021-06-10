@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public Sniper sniper;
     public CharacterController controller;
     public GameObject camera;
+    public AudioManager audio;
 
     float speed;
 
@@ -26,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        audio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         isInRangeBoss = false;
         isInRangeBoss2 = false;
         scoped = false;
@@ -66,38 +68,44 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
-        {
             velocity.y = -2f;
-        }
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        //controller.Move(move * speed * Time.deltaTime);
-
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(playerController.jumpForce * -2f * playerController.gravity);
+            audio.Play("Jump");
         }
 
         velocity.y += playerController.gravity * Time.deltaTime;
 
         controller.Move((move * speed + velocity) * Time.deltaTime);
-        Debug.Log(speed.ToString());
+
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+            audio.PlayOnce("PlayerWalk");
+        
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+            audio.Stop("PlayerWalk");
     }
 
     private void Sprint()
     {
+       
         if (Input.GetKeyDown(KeyCode.LeftShift) && isGrounded)
         {
+            audio.Stop("PlayerWalk");
+            audio.Play("PlayerSprint");
             speed = playerController.sprintSpeed;
             Debug.Log("Sprinting");
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             speed = playerController.normalSpeed;
+            audio.Stop("PlayerSprint");
         }
     }
 
