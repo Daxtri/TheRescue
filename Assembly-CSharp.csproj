@@ -101,6 +101,7 @@
     <Compile Include="Assets\Prefabs\LeverPrefabs\Lever.cs" />
     <Compile Include="Assets\Scripts\Shaders\Holograma\GlitchControl.cs" />
     <Compile Include="Assets\Scripts\LvL2\FuseScripts\FuseScript.cs" />
+    <Compile Include="Assets\MainMenu.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Scripts\Shaders\Holograma\Holograma.shader" />
