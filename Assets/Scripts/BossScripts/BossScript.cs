@@ -93,10 +93,10 @@ public class BossScript : MonoBehaviour
                 c.GetComponent<PlayerController>().TakeDamage(attackDamage);
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(attackAnchor.position, attackRange);
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.DrawWireSphere(attackAnchor.position, attackRange);
+    //    Gizmos.DrawWireSphere(transform.position, attackRange);
+    //    Gizmos.DrawWireSphere(transform.position, detectionRange);
+    //}
 }

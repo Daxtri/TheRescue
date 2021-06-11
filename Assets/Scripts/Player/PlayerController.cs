@@ -77,6 +77,9 @@ public class PlayerController : MonoBehaviour
     {
         if (other.tag.Equals("BossBullet"))
             TakeDamage(20f);
+
+        if (other.tag.Equals("Final"))
+            SceneManager.LoadScene("VictoryScene");
     }
 
     void Die()

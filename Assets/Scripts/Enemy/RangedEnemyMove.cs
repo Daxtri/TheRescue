@@ -11,6 +11,8 @@ public class RangedEnemyMove : MonoBehaviour
     NavMeshAgent agent;
     public LayerMask enemyLayerMask, playerMask;
 
+    public float detectionRange = 20f;
+
     public float attackRadius = 10f;
 
     public GameObject player;
@@ -43,7 +45,15 @@ public class RangedEnemyMove : MonoBehaviour
     public void Update()
     {
         if (enemyHp.dead == false)
+        {
+            if(Vector3.Distance(transform.position, player.transform.position) <= detectionRange)
             Move();
+            else
+            {
+                anim.SetBool("Running", false);
+            }
+        }
+            
 
         else
         {
@@ -113,11 +123,11 @@ public class RangedEnemyMove : MonoBehaviour
         alreadyAttacked = false;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(this.transform.position, distance);
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(this.transform.position, attackRadius);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireSphere(this.transform.position, distance);
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawWireSphere(this.transform.position, attackRadius);
+    //}
 }

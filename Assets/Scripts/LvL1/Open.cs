@@ -27,7 +27,7 @@ public class Open : MonoBehaviour
         {
             load.gameObject.SetActive(true);
             load.value = time_lose / 50;
-            if (time_lose++ == 5000) //CUSTOM TIMER
+            if (time_lose++ == 100) //CUSTOM TIMER
             {
                 time_lose = 0;
                 startAnim();

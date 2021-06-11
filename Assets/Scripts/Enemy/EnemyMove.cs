@@ -94,9 +94,9 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(this.transform.position, distance);
-        Gizmos.DrawWireSphere(this.transform.position, attackRadius);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.DrawWireSphere(this.transform.position, distance);
+    //    Gizmos.DrawWireSphere(this.transform.position, attackRadius);
+    //}
 }

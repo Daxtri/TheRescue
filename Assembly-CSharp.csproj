@@ -67,6 +67,7 @@
     <Compile Include="Assets\BulletTrail\BulletTrail\LineFade.cs" />
     <Compile Include="Assets\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Player\FallDamage.cs" />
+    <Compile Include="Assets\Scripts\Menu\DeathMenu.cs" />
     <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\About\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\Guns\Recoil.cs" />
     <Compile Include="Assets\QuestLvL2.cs" />
@@ -103,7 +104,6 @@
     <Compile Include="Assets\Prefabs\LeverPrefabs\Lever.cs" />
     <Compile Include="Assets\Scripts\Shaders\Holograma\GlitchControl.cs" />
     <Compile Include="Assets\Scripts\LvL2\FuseScripts\FuseScript.cs" />
-    <Compile Include="Assets\Scripts\Menu\DeathMenu.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Scripts\Shaders\Holograma\Holograma.shader" />
@@ -720,6 +720,12 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
